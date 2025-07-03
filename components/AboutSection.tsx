@@ -1,153 +1,163 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
-import { Lightbulb, Users, GraduationCap, Shield, Target, Award, TrendingUp, Globe } from 'lucide-react';
+import { Lightbulb, Users, GraduationCap, Shield, Target } from 'lucide-react';
 
 const AboutSection = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = sectionRef.current?.querySelectorAll('.fade-in-section');
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  const stats = [
-    { icon: Users, label: 'Happy Clients', value: '500+', color: 'text-primary' },
-    { icon: Award, label: 'Years Experience', value: '15+', color: 'text-secondary' },
-    { icon: Target, label: 'Success Rate', value: '98%', color: 'text-accent' },
-    { icon: Globe, label: 'Countries Served', value: '25+', color: 'text-success' },
-  ];
-
   const values = [
     {
       icon: Lightbulb,
       title: 'Innovation',
       description: 'Constantly pushing boundaries to create cutting-edge solutions that transform businesses.',
-      gradient: 'from-primary to-secondary',
+      gradient: 'from-purple-500 to-pink-500',
+      bgColor: 'bg-purple-50/80 backdrop-blur-sm'
     },
     {
       icon: Users,
       title: 'Collaboration',
       description: 'Working together with our clients to achieve extraordinary results through teamwork.',
-      gradient: 'from-secondary to-accent',
+      gradient: 'from-blue-500 to-cyan-500',
+      bgColor: 'bg-blue-50/80 backdrop-blur-sm'
     },
     {
       icon: GraduationCap,
       title: 'Empowerment',
       description: 'Empowering the next generation of tech leaders through comprehensive training programs.',
-      gradient: 'from-accent to-success',
+      gradient: 'from-emerald-500 to-teal-500',
+      bgColor: 'bg-emerald-50/80 backdrop-blur-sm'
     },
     {
       icon: Shield,
       title: 'Integrity',
       description: 'Building trust through transparency, ethical practices, and unwavering commitment.',
-      gradient: 'from-success to-warning',
+      gradient: 'from-orange-500 to-red-500',
+      bgColor: 'bg-orange-50/80 backdrop-blur-sm'
     },
   ];
 
   return (
-    <section ref={sectionRef} className="section-lg relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none select-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse" style={{ transform: 'translate(-50%, -50%)', animationDelay: '4s' }}></div>
-      </div>
+    <section className="py-12 md:py-20 bg-gradient-to-br from-slate-50 via-white to-slate-100 relative overflow-hidden">
+      <style jsx>{`
+        .section-bg {
+          background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        .scale-in {
+          opacity: 0;
+          transform: scale(0.95);
+          animation: scaleIn 0.6s ease-out forwards;
+        }
+        .scale-in:nth-child(1) { animation-delay: 0.2s; }
+        .scale-in:nth-child(2) { animation-delay: 0.4s; }
+        .scale-in:nth-child(3) { animation-delay: 0.6s; }
+        .value-card:nth-child(1) { animation-delay: 0.8s; }
+        .value-card:nth-child(2) { animation-delay: 1s; }
+        .value-card:nth-child(3) { animation-delay: 1.2s; }
+        .value-card:nth-child(4) { animation-delay: 1.4s; }
+        .fade-slide {
+          opacity: 0;
+          transform: translateX(30px);
+          animation: fadeSlide 0.8s ease-out forwards;
+          animation-delay: 0.4s;
+        }
+        .card-hover {
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .card-hover::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s ease;
+        }
+        .card-hover:hover::after {
+          left: 100%;
+        }
+        .icon-hover:hover {
+          transform: rotate(360deg);
+          transition: transform 0.6s ease;
+        }
+        @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeSlide {
+          from { opacity: 0; transform: translateX(30px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @media (max-width: 640px) {
+          .scale-in, .value-card, .fade-slide {
+            animation-delay: 0.2s !important;
+          }
+        }
+      `}</style>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-20 fade-in-section">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            About <span className="gradient-text">Zephyrix Tech</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-bg">
+        <div className="text-center mb-12 md:mb-20 scale-in">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#0f0f23] to-slate-700 bg-clip-text text-transparent">
+            About <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Zephyrix Tech</span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-tight md:leading-relaxed">
             We're passionate about building innovative products that make a difference in the world through technology.
           </p>
         </div>
 
-        {/* Mission & Vision */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="fade-in-section">
-            <div className="card-glass p-8 hover-lift">
-              <h3 className="text-3xl font-bold mb-6 gradient-text">Our Mission</h3>
-              <p className="text-lg text-text-secondary mb-6 leading-relaxed">
-                Our mission is to harness the power of technology to drive positive change in the world. We believe that by combining innovative thinking with technical expertise, we can create solutions that make a real difference in people's lives.
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center mb-12 md:mb-20">
+          <div className="scale-in">
+            <div className="p-6 md:p-8 rounded-2xl bg-white/80 backdrop-blur-sm shadow-lg card-hover transition-all duration-300 border border-slate-100/50">
+              <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full mb-4 md:mb-6 transition-all duration-300">
+                <Lightbulb className="h-4 md:h-5 w-4 md:w-5 text-purple-600 mr-2" />
+                <span className="text-purple-800 font-medium text-sm md:text-base">Our Mission</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Our Mission
+              </h3>
+              <p className="text-sm md:text-lg text-slate-600 mb-4 md:mb-6 leading-tight md:leading-relaxed">
+                Our mission is to harness the power of technology to drive positive change in the world. We combine innovative thinking with technical expertise to create solutions that make a real impact.
               </p>
-              <p className="text-lg text-text-secondary leading-relaxed">
+              <p className="text-sm md:text-lg text-slate-600 leading-tight md:leading-relaxed">
                 With over a decade of experience, we've helped hundreds of businesses across multiple industries modernize their operations and achieve their digital transformation goals.
               </p>
             </div>
           </div>
 
-          <div className="fade-in-section">
+          <div className="flex justify-center fade-slide">
             <div className="relative">
               <img
                 src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Team collaboration"
-                className="w-full h-auto rounded-2xl shadow-2xl hover-scale"
+                className="w-full max-w-sm md:max-w-md h-auto rounded-2xl shadow-2xl card-hover transition-transform duration-300"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent rounded-2xl"></div>
+              <div className="absolute -top-3 md:-top-4 -right-3 md:-right-4 w-16 md:w-24 h-16 md:h-24 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg">
+                <Target className="h-8 md:h-12 w-8 md:w-12 text-white" />
+              </div>
             </div>
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="mb-20 fade-in-section">
-          <h3 className="text-3xl font-bold text-center mb-12 gradient-text-secondary">Our Impact</h3>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="text-center card-glass hover-lift group"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className={`w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-br ${
-                  index === 0 ? 'from-primary to-secondary' :
-                  index === 1 ? 'from-secondary to-accent' :
-                  index === 2 ? 'from-accent to-success' :
-                  'from-success to-warning'
-                } flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <stat.icon className="w-8 h-8 text-white" />
-                </div>
-                <div className={`text-3xl font-bold mb-2 ${stat.color}`}>{stat.value}</div>
-                <p className="text-text-secondary">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Values Section */}
-        <div className="fade-in-section">
-          <h3 className="text-3xl font-bold text-center mb-12 gradient-text">Our Values</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="scale-in">
+          <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 bg-gradient-to-r from-[#0f0f23] to-slate-700 bg-clip-text text-transparent">
+            Our Values
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="card-glass hover-lift group text-center"
-                style={{ animationDelay: `${index * 200}ms` }}
+                className={`${value.bgColor} rounded-2xl p-6 md:p-8 text-center shadow-lg card-hover transition-all duration-300 border border-slate-100/50 relative overflow-hidden value-card`}
               >
-                <div className={`w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-br ${value.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <value.icon className="w-8 h-8 text-white" />
+                <div className="absolute top-0 right-0 w-24 md:w-32 h-24 md:h-32 bg-gradient-to-l from-white/20 to-transparent rounded-full transform translate-x-12 md:translate-x-16 -translate-y-12 md:-translate-y-16"></div>
+                <div className={`inline-flex p-3 md:p-4 rounded-2xl bg-gradient-to-r ${value.gradient} text-white mb-4 md:mb-6 shadow-lg icon-hover`}>
+                  <value.icon className="w-6 md:w-8 h-6 md:h-8 text-white" />
                 </div>
-                <h4 className="text-xl font-semibold mb-4 text-white group-hover:text-primary transition-colors duration-300">
-                  {value.title}
-                </h4>
-                <p className="text-text-secondary leading-relaxed">
-                  {value.description}
-                </p>
+                <h4 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-[#0f0f23]">{value.title}</h4>
+                <p className="text-sm md:text-base text-slate-600 leading-tight md:leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
