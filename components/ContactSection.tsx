@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { Mail, Phone, Send, CheckCircle, MapPin, Clock, Sparkles } from 'lucide-react';
 
 const ContactSection = () => {
@@ -11,25 +11,6 @@ const ContactSection = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = sectionRef.current?.querySelectorAll('.fade-in-section');
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -42,13 +23,11 @@ const ContactSection = () => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     setIsLoading(false);
     setIsSubmitted(true);
     
-    // Reset form after delay
     setTimeout(() => {
       setFormData({ name: '', email: '', message: '' });
       setIsSubmitted(false);
@@ -83,106 +62,168 @@ const ContactSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} className="section-lg relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-30 pointer-events-none select-none">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-success/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-warning/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ transform: 'translate(-50%, -50%)', animationDelay: '4s' }}></div>
-      </div>
+    <section className="py-12 md:py-20 bg-gradient-to-br from-blue-50 via-white to-cyan-50 relative overflow-hidden">
+      <style jsx>{`
+        .section-bg {
+          background: radial-gradient(circle at center, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 70%);
+        }
+        .scale-in {
+          opacity: 0;
+          transform: scale(0.95);
+          animation: scaleIn 0.6s ease-out forwards;
+        }
+        .scale-in:nth-child(1) { animation-delay: 0.2s; }
+        .scale-in:nth-child(2) { animation-delay: 0.4s; }
+        .contact-card:nth-child(1) { animation-delay: 0.6s; }
+        .contact-card:nth-child(2) { animation-delay: 0.7s; }
+        .contact-card:nth-child(3) { animation-delay: 0.8s; }
+        .fade-slide {
+          opacity: 0;
+          transform: translateX(30px);
+          animation: fadeSlide 0.8s ease-out forwards;
+          animation-delay: 0.4s;
+        }
+        .card-hover {
+          position: relative;
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .card-hover::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s ease;
+        }
+        .card-hover:hover::after {
+          left: 100%;
+        }
+        .icon-hover:hover {
+          transform: scale(1.1);
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .input-focus {
+          transition: all 0.3s ease;
+        }
+        .input-focus:focus {
+          border-color: transparent;
+          box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+        .loading-spinner {
+          border: 3px solid rgba(255, 255, 255, 0.3);
+          border-top: 3px solid white;
+          border-radius: 50%;
+          width: 24px;
+          height: 24px;
+          animation: spin 1s linear infinite;
+        }
+        @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.95); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes fadeSlide {
+          from { opacity: 0; transform: translateX(30px); }
+          to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        @media (max-width: 640px) {
+          .scale-in, .contact-card, .fade-slide {
+            animation-delay: 0.2s !important;
+          }
+        }
+      `}</style>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center mb-20 fade-in-section">
-          <div className="inline-flex items-center space-x-2 bg-success/10 border border-success/20 rounded-full px-4 py-2 mb-6">
-            <Sparkles className="w-4 h-4 text-success" />
-            <span className="text-sm font-medium text-success">Get In Touch</span>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-bg">
+        <div className="text-center mb-12 md:mb-20 scale-in">
+          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-slate-200 rounded-full px-6 py-3 mb-4 md:mb-6 hover:bg-white/90 transition-all duration-300">
+            <Sparkles className="w-4 md:w-5 h-4 md:h-5 text-blue-500" />
+            <span className="text-sm md:text-base font-semibold text-slate-800">Get In Touch</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Let's Start a <span className="gradient-text">Conversation</span>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight text-slate-800">
+            Let's Start a <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Conversation</span>
           </h2>
-          <p className="text-xl text-text-secondary max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-tight md:leading-relaxed">
             Ready to transform your business? We'd love to hear from you and discuss how we can help.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          {/* Contact Info */}
-          <div className="fade-in-section">
-            <div className="space-y-8">
-              {contactInfo.map((info, index) => (
-                <div
-                  key={index}
-                  className="card-glass hover-lift group p-6"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <div className="flex items-start space-x-4">
-                    <div className={`w-14 h-14 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <info.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-primary transition-colors duration-300">
-                        {info.title}
-                      </h3>
-                      {info.link !== '#' ? (
-                        <a 
-                          href={info.link} 
-                          className="text-primary hover:text-secondary transition-colors duration-300 text-lg font-medium"
-                        >
-                          {info.value}
-                        </a>
-                      ) : (
-                        <span className="text-text-secondary text-lg">{info.value}</span>
-                      )}
-                      <p className="text-text-muted mt-1">{info.description}</p>
-                    </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+          <div className="space-y-6 scale-in">
+            {contactInfo.map((info, index) => (
+              <div
+                key={index}
+                className="bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-100/50 p-6 card-hover contact-card transition-all duration-300"
+              >
+                <div className="flex items-start space-x-4">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${info.gradient} rounded-xl flex items-center justify-center icon-hover transition-all duration-300`}>
+                    <info.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-base md:text-lg font-semibold text-slate-800 mb-1">{info.title}</h3>
+                    {info.link !== '#' ? (
+                      <a
+                        href={info.link}
+                        className="text-blue-500 hover:text-cyan-500 transition-colors duration-300 text-sm md:text-base font-medium"
+                      >
+                        {info.value}
+                      </a>
+                    ) : (
+                      <span className="text-slate-600 text-sm md:text-base">{info.value}</span>
+                    )}
+                    <p className="text-xs md:text-sm text-slate-600 mt-1 leading-tight md:leading-relaxed">{info.description}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* Business Hours */}
-            <div className="mt-8 card-glass p-6 fade-in-section">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center">
+              </div>
+            ))}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-100/50 p-6 card-hover transition-all duration-300 contact-card">
+              <div className="flex items-center space-x-3 mb-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center icon-hover transition-all duration-300">
                   <Clock className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-white">Business Hours</h3>
+                <h3 className="text-base md:text-lg font-semibold text-slate-800">Business Hours</h3>
               </div>
-              <div className="space-y-2 text-text-secondary">
+              <div className="space-y-2 text-slate-600 text-xs md:text-sm">
                 <div className="flex justify-between">
                   <span>Monday - Friday</span>
-                  <span className="text-primary">9:00 AM - 6:00 PM</span>
+                  <span className="text-blue-500">9:00 AM - 6:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Saturday</span>
-                  <span className="text-primary">10:00 AM - 4:00 PM</span>
+                  <span className="text-blue-500">10:00 AM - 4:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sunday</span>
-                  <span className="text-text-muted">Closed</span>
+                  <span className="text-slate-600">Closed</span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <div className="fade-in-section">
-            <div className="card-glass p-8 lg:p-10">
-              <h3 className="text-3xl font-bold text-white mb-8">Send Us a Message</h3>
-              
+          <div className="fade-slide">
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-100/50 p-6 md:p-8 shadow-lg card-hover transition-all duration-300">
+              <h3 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6">Send Us a Message</h3>
               {isSubmitted ? (
-                <div className="text-center py-12 animate-scaleIn">
-                  <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse-custom">
-                    <CheckCircle className="w-10 h-10 text-white" />
+                <div className="text-center py-12">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-8 h-8 text-white" />
                   </div>
-                  <h4 className="text-2xl font-semibold text-white mb-4">Thank You!</h4>
-                  <p className="text-text-secondary">Your message has been sent successfully. We'll get back to you soon.</p>
+                  <h4 className="text-xl md:text-2xl font-semibold text-slate-800 mb-3">Thank You!</h4>
+                  <p className="text-sm md:text-base text-slate-600">Your message has been sent successfully. We'll get back to you soon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-2">
+                    <label htmlFor="name" className="block text-sm md:text-base font-medium text-slate-600 mb-1">
                       Full Name *
                     </label>
                     <input
@@ -192,13 +233,12 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-surface border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 text-white placeholder-text-muted"
+                      className="w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-lg input-focus text-slate-800 placeholder-slate-400"
                       placeholder="John Doe"
                     />
                   </div>
-                  
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">
+                    <label htmlFor="email" className="block text-sm md:text-base font-medium text-slate-600 mb-1">
                       Email Address *
                     </label>
                     <input
@@ -208,13 +248,12 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-surface border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 text-white placeholder-text-muted"
+                      className="w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-lg input-focus text-slate-800 placeholder-slate-400"
                       placeholder="john@example.com"
                     />
                   </div>
-                  
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-2">
+                    <label htmlFor="message" className="block text-sm md:text-base font-medium text-slate-600 mb-1">
                       Message *
                     </label>
                     <textarea
@@ -224,25 +263,24 @@ const ContactSection = () => {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 bg-surface border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all duration-200 resize-none text-white placeholder-text-muted"
+                      className="w-full px-4 py-3 bg-white/50 border border-slate-200 rounded-lg input-focus resize-none text-slate-800 placeholder-slate-400"
                       placeholder="Tell us about your project..."
                     ></textarea>
                   </div>
-                  
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full bg-gradient-to-r from-primary to-secondary text-white py-4 px-6 rounded-lg hover:shadow-lg transition-all duration-300 flex items-center justify-center space-x-3 group font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="w-full bg-gradient-to-r from-blue-500 to-cyan-500 text-white py-3 px-6 rounded-lg hover:shadow-lg hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 group font-semibold text-base md:text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                   >
                     {isLoading ? (
                       <>
-                        <div className="loading"></div>
+                        <div className="loading-spinner"></div>
                         <span>Sending...</span>
                       </>
                     ) : (
                       <>
                         <span>Send Message</span>
-                        <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                        <Send className="w-4 md:w-5 h-4 md:h-5 group-hover:translate-x-1 transition-transform duration-300" />
                       </>
                     )}
                   </button>

@@ -38,7 +38,7 @@ const ProductsPage = () => {
         'Integrated payment gateway',
       ],
       badge: 'Popular',
-      badgeColor: 'bg-gradient-to-r from-primary to-secondary',
+      badgeColor: 'bg-gradient-to-r from-blue-500 to-purple-500',
       gradient: 'from-blue-500 to-purple-500',
     },
     {
@@ -135,50 +135,53 @@ const ProductsPage = () => {
   ];
 
   return (
-    <main ref={pageRef}>
+    <main ref={pageRef} className="bg-gray-50">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-        {/* Background Elements */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-accent/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-success/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-warning/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+
+      {/* Hero Section - Dark Theme */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f0f23] via-slate-900 to-[#0f0f23] text-white pt-16">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-10 left-5 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-10 right-5 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
+          <div className="absolute top-1/3 left-1/3 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-4000"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-fadeInUp">
-            <div className="inline-flex items-center space-x-2 bg-accent/10 border border-accent/20 rounded-full px-4 py-2 mb-8">
-              <Sparkles className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-accent">Our Products</span>
+          <div className="animate-slide-up">
+            <div className="inline-flex items-center space-x-2 bg-blue-500/20 border border-blue-500/30 rounded-full px-4 py-2 mb-8 transform hover:scale-105 transition-transform duration-300">
+              <Sparkles className="w-5 h-5 text-blue-400" />
+              <span className="text-sm font-medium text-blue-200">Our Products</span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Enterprise <span className="gradient-text">Solutions</span>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              Enterprise <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Solutions</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-text-secondary mb-12 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               Powering Business Growth with Cutting-Edge Software Products and Innovative Technology Solutions
             </p>
+
+            <button className="btn-primary group flex items-center space-x-2 mx-auto">
+              <span>Explore Now</span>
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+            </button>
           </div>
         </div>
       </section>
 
-      {/* Products Grid */}
-      <section className="section-lg relative overflow-hidden">
+      {/* Products Grid - Light Theme */}
+      <section className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {products.map((product, index) => (
               <div
                 key={index}
-                className="fade-in-section card-glass hover-lift group overflow-hidden"
+                className="fade-in-section card-glass hover-lift group overflow-hidden rounded-2xl shadow-lg transition-all duration-500"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                {/* Image */}
-                <div className="relative overflow-hidden aspect-video mb-6">
+                <div className="relative overflow-hidden aspect-video">
                   {product.badge && (
-                    <div className={`absolute top-4 right-4 ${product.badgeColor} text-white px-3 py-1 rounded-full text-sm font-medium z-10 flex items-center space-x-1 shadow-lg`}>
+                    <div className={`absolute top-4 right-4 ${product.badgeColor} text-white px-3 py-1 rounded-full text-sm font-medium z-10 flex items-center space-x-1 shadow-md transform group-hover:scale-110 transition-transform duration-300`}>
                       {product.badge === 'Popular' && <Star className="w-4 h-4" />}
                       {product.badge === 'New' && <Zap className="w-4 h-4" />}
                       {product.badge === 'Featured' && <Target className="w-4 h-4" />}
@@ -189,39 +192,36 @@ const ProductsPage = () => {
                   <img
                     src={product.image}
                     alt={product.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <button className="bg-white text-primary px-6 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 shadow-lg">
+                    <button className="bg-white text-blue-600 px-6 py-2 rounded-full font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg hover:bg-blue-50">
                       View Details
                     </button>
                   </div>
                 </div>
 
-                {/* Content */}
-                <div>
-                  <h3 className="text-2xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">
+                <div className="p-6">
+                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                     {product.title}
                   </h3>
-                  <p className="text-text-secondary mb-6 leading-relaxed">
+                  <p className="text-gray-600 mb-6 leading-relaxed text-sm sm:text-base">
                     {product.description}
                   </p>
 
-                  {/* Features */}
                   <div className="space-y-3 mb-8">
                     {product.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-center space-x-3">
                         <div className={`w-5 h-5 rounded-full bg-gradient-to-r ${product.gradient} flex items-center justify-center flex-shrink-0`}>
                           <Check className="w-3 h-3 text-white" />
                         </div>
-                        <span className="text-text-secondary">{feature}</span>
+                        <span className="text-gray-600 text-sm sm:text-base">{feature}</span>
                       </div>
                     ))}
                   </div>
 
-                  {/* Action Button */}
-                  <button className="w-full bg-gradient-to-r from-primary to-secondary text-white py-3 rounded-lg hover:shadow-lg transition-all duration-300 font-semibold group/btn">
+                  <button className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-3 rounded-lg hover:shadow-xl transition-all duration-300 font-semibold group/btn">
                     <span className="flex items-center justify-center space-x-2">
                       <span>Learn More</span>
                       <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
@@ -234,28 +234,30 @@ const ProductsPage = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="section relative overflow-hidden">
+      {/* Features Section - Light Theme */}
+      <section className="py-16 sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 fade-in-section">
-            <h2 className="text-4xl font-bold mb-4 gradient-text-secondary">Why Choose Our Products?</h2>
-            <p className="text-xl text-text-secondary">Built with cutting-edge technology and designed for scalability</p>
+          <div className="text-center mb-12 sm:mb-16 fade-in-section">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Why Choose Our Products?
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600">Built with cutting-edge technology and designed for scalability</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="fade-in-section card-glass hover-lift text-center group"
+                className="fade-in-section card-glass hover-lift text-center group rounded-2xl shadow-md transition-all duration-500"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className={`w-20 h-20 bg-gradient-to-br ${feature.gradient} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <feature.icon className="w-10 h-10 text-white" />
+                <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${feature.gradient} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
+                  <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-white group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-lg sm:text-xl font-bold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
                   {feature.title}
                 </h3>
-                <p className="text-text-secondary leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base px-4">
                   {feature.description}
                 </p>
               </div>
@@ -264,20 +266,22 @@ const ProductsPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="section relative overflow-hidden">
+      {/* CTA Section - Light Theme */}
+      <section className="py-16 sm:py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <div className="card-glass p-8 fade-in-section">
-            <h2 className="text-4xl font-bold mb-6 gradient-text">Ready to Transform Your Business?</h2>
-            <p className="text-xl text-text-secondary mb-8 leading-relaxed">
+          <div className="card-glass p-6 sm:p-8 rounded-2xl shadow-lg fade-in-section">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Ready to Transform Your Business?
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
               Get in touch with our team to discuss how our products can help streamline your operations and drive growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="btn-primary group flex items-center space-x-2">
+              <button className="btn-primary group flex items-center space-x-2 justify-center">
                 <span>Request Demo</span>
                 <Target className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
               </button>
-              <button className="btn-secondary group flex items-center space-x-2">
+              <button className="btn-secondary group flex items-center space-x-2 justify-center">
                 <span>Contact Sales</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
@@ -286,6 +290,7 @@ const ProductsPage = () => {
         </div>
       </section>
 
+      {/* Footer - Distinct Color */}
       <Footer />
     </main>
   );
