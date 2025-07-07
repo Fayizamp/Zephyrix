@@ -1,8 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { Mail, Phone, Send, CheckCircle, MapPin, Clock, Sparkles, MessageCircle, ArrowRight } from 'lucide-react';
 
 const ContactPage = () => {
@@ -88,7 +86,6 @@ const ContactPage = () => {
 
   return (
     <main ref={pageRef} className="bg-gray-50">
-      <Header />
       {/* Hero Section - Dark Theme */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f0f23] via-slate-900 to-[#0f0f23] text-white pt-16">
         <div className="absolute inset-0 opacity-20">
@@ -331,7 +328,6 @@ const ContactPage = () => {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 };

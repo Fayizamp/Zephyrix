@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { Check, Star, Zap, Sparkles, ArrowRight, Target } from 'lucide-react';
 
 const ProductsPage = () => {
@@ -136,7 +134,6 @@ const ProductsPage = () => {
 
   return (
     <main ref={pageRef} className="bg-gray-50">
-      <Header />
 
       {/* Hero Section - Dark Theme */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f0f23] via-slate-900 to-[#0f0f23] text-white pt-16">
@@ -290,8 +287,6 @@ const ProductsPage = () => {
         </div>
       </section>
 
-      {/* Footer - Distinct Color */}
-      <Footer />
     </main>
   );
 };
