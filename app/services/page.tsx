@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import { 
   Code, 
   ShoppingCart, 
@@ -172,7 +171,7 @@ const ServicesPage = () => {
   return (
     <main ref={pageRef} className="relative">
       {/* Hero Section (Dark Theme) */}
-            <Header />
+            
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-gray-900 text-white">
         <div className="absolute inset-0 opacity-30">
@@ -344,7 +343,7 @@ const ServicesPage = () => {
         </div>
       </section>
 
-      <Footer />
+     
 
       <style jsx>{`
         @keyframes fadeInUp {
