@@ -2,8 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Users, Target, Award, Clock, Lightbulb, Shield, TrendingUp, Globe, Sparkles, ChevronDown, Play, Pause, Star, MapPin, Calendar, ArrowRight } from 'lucide-react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+
 
 const AboutPage = () => {
   const pageRef = useRef<HTMLElement>(null);
@@ -118,7 +117,6 @@ const AboutPage = () => {
 
   return (
     <main ref={pageRef} className="relative">
-      <Header />
 
       {/* Dark Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 text-white">
@@ -409,7 +407,6 @@ const AboutPage = () => {
           transform: scale(1.05);
         }
       `}</style>
-      <Footer />
     </main>
   );
 };
