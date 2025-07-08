@@ -4,11 +4,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X, Home, Info, Briefcase, Package, Phone, Zap } from 'lucide-react';
+import Image from 'next/image';
 
 const Header = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
+  const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,67 +37,92 @@ const Header = () => {
     { href: '/contact', label: 'Contact', icon: Phone },
   ];
 
+  const getHeaderStyle = () => {
+    if (isHomePage) {
+      return isScrolled 
+        ? 'bg-white/95 backdrop-blur-lg shadow-2xl border-b border-gray-200/50' 
+        : 'bg-transparent';
+    } else {
+      return isScrolled 
+        ? 'bg-white shadow-lg border-b border-gray-200' 
+        : 'bg-transparent';
+    }
+  };
+
+  // Determine text color for navigation links
+  const getNavLinkStyle = (isActive: boolean) => {
+    if (isHomePage) {
+      if (isActive) {
+        return isScrolled ? 'text-blue-600' : 'text-blue-400';
+      } else {
+        return isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-300 hover:text-white';
+      }
+    } else {
+      return isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600';
+    }
+  };
+
+  // Determine company name color
+  const getCompanyNameStyle = () => {
+    if (isHomePage) {
+      return isScrolled ? 'text-gray-800' : 'text-white';
+    } else {
+      return 'text-gray-800';
+    }
+  };
+
+  // Determine mobile menu button style
+  const getMobileButtonStyle = () => {
+    if (isHomePage) {
+      return isScrolled 
+        ? 'bg-gray-100 hover:bg-gray-200 text-gray-800' 
+        : 'bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white';
+    } else {
+      return 'bg-gray-100 hover:bg-gray-200 text-gray-800';
+    }
+  };
+
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-lg shadow-2xl border-b border-gray-200/50' 
-          : 'bg-transparent'
-      }`}>
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${getHeaderStyle()}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20 relative">
+          <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative">
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 ${
-                  isScrolled 
-                    ? 'bg-gradient-to-br from-blue-600 to-purple-600 shadow-lg' 
-                    : 'bg-gradient-to-br from-blue-500 to-purple-500 shadow-2xl shadow-blue-500/25'
-                }`}>
-                  <Zap className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
-                </div>
-                <div className={`absolute inset-0 rounded-xl transition-all duration-300 ${
-                  isScrolled 
-                    ? 'bg-gradient-to-br from-blue-600/20 to-purple-600/20 blur-xl opacity-0' 
-                    : 'bg-gradient-to-br from-blue-500/30 to-purple-500/30 blur-xl opacity-100'
-                }`}></div>
+              <div className="relative ">
+                <Image
+                  src="/assets/Logo.png"
+                  alt="Zephyrix Tech Logo"
+                  width={100}
+                  height={100}
+                  className="rounded-xl transition-all rounded-[25px] bg-white duration-300 group-hover:scale-110"
+                />
               </div>
-              <div className="text-2xl font-bold">
+              {/* <div className="text-2xl font-bold">
                 <span className={`bg-gradient-to-r transition-all duration-300 ${
-                  isScrolled 
-                    ? 'from-blue-600 to-purple-600' 
-                    : 'from-blue-400 to-purple-400'
+                  isHomePage 
+                    ? (isScrolled ? 'from-blue-600 to-purple-600' : 'from-blue-400 to-purple-400')
+                    : 'from-blue-600 to-purple-600'
                 } bg-clip-text text-transparent`}>
                   Zephyrix
                 </span>{' '}
-                <span className={`transition-colors duration-300 ${
-                  isScrolled ? 'text-gray-800' : 'text-white'
-                }`}>
+                <span className={`transition-colors duration-300 ${getCompanyNameStyle()}`}>
                   Tech
                 </span>
-              </div>
+              </div> */}
             </Link>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-1 absolute left-1/2 transform -translate-x-1/2">
+            {/* Desktop Navigation - Moved to right side */}
+            <nav className="hidden md:flex items-center space-x-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 group ${
-                    pathname === link.href 
-                      ? isScrolled 
-                        ? 'text-blue-600' 
-                        : 'text-blue-400'
-                      : isScrolled 
-                        ? 'text-gray-700 hover:text-blue-600' 
-                        : 'text-gray-300 hover:text-white'
+                    getNavLinkStyle(pathname === link.href)
                   }`}
                 >
                   {link.label}
-                  {/* <span className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ${
-                    pathname === link.href ? 'w-6' : 'w-0 group-hover:w-6'
-                  }`}></span> */}
                 </Link>
               ))}
             </nav>
@@ -104,9 +131,7 @@ const Header = () => {
             <button
               onClick={toggleOverlay}
               className={`md:hidden p-3 rounded-xl transition-all duration-300 transform hover:scale-105 ${
-                isScrolled 
-                  ? 'bg-gray-100 hover:bg-gray-200 text-gray-800' 
-                  : 'bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white'
+                getMobileButtonStyle()
               }`}
             >
               <Menu className="w-6 h-6" />

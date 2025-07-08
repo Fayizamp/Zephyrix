@@ -321,10 +321,10 @@ const ProductsPage = () => {
                 <span>Explore Products</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
-              <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-blue-500 hover:text-blue-600 transition-all duration-300 transform hover:scale-105 group flex items-center space-x-2">
+              {/* <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-blue-500 hover:text-blue-600 transition-all duration-300 transform hover:scale-105 group flex items-center space-x-2">
                 <Layers className="w-5 h-5" />
                 <span>View Demo</span>
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -454,10 +454,10 @@ const ProductsPage = () => {
               Join thousands of businesses worldwide who trust our solutions to drive their digital transformation journey
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 group flex items-center space-x-2 justify-center">
+               <a href="/services" className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 group flex items-center space-x-2 justify-center">
                 <Target className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
-                <span>Request Demo</span>
-              </button>
+                <span>Explore Services</span>
+              </a>
               <button className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-blue-500 hover:text-blue-600 transition-all duration-300 transform hover:scale-105 group flex items-center space-x-2 justify-center">
                 <span>Contact Sales</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

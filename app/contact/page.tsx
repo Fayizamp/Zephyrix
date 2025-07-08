@@ -319,7 +319,7 @@ const ContactPage = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-slide-up">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200 rounded-full px-6 py-3 mb-8 transform hover:scale-105 transition-all duration-300 shadow-sm">
-              <MessageCircle className="w-5 h-5 text-blue-600 animate-bounce-subtle" />
+              <MessageCircle className="w-5 h-5 text-blue-600 " />
               <span className="text-sm font-semibold text-blue-700">Let's Connect</span>
             </div>
             
