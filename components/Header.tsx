@@ -41,7 +41,7 @@ const Header = () => {
     if (isHomePage) {
       return isScrolled 
         ? 'bg-white/95 backdrop-blur-lg shadow-2xl border-b border-gray-200/50' 
-        : 'bg-transparent';
+        : 'bg-transparent rounder-[25px]';
     } else {
       return isScrolled 
         ? 'bg-white shadow-lg border-b border-gray-200' 
@@ -95,7 +95,7 @@ const Header = () => {
                   alt="Zephyrix Tech Logo"
                   width={100}
                   height={100}
-                  className="rounded-xl transition-all rounded-[25px] bg-white duration-300 group-hover:scale-110"
+                  className="transition-all rounded-[25px] bg-white duration-300 group-hover:scale-110"
                 />
               </div>
               {/* <div className="text-2xl font-bold">
