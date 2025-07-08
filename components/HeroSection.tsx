@@ -71,7 +71,7 @@ const HeroSection = () => {
           
           {/* Left Side - Content (3 columns) */}
           <div className="xl:col-span-3 space-y-8">
-            <div className="space-y-6">
+            <div className="space-y-6 pt-10">
               {/* Badge */}
               <div className="inline-flex items-center px-4 py-2 bg-blue-900/30 border border-blue-700/50 rounded-full backdrop-blur-sm">
                 <Terminal className="w-4 h-4 text-blue-400 mr-2" />

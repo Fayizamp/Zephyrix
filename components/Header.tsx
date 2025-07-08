@@ -85,22 +85,20 @@ const Header = () => {
                   className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 group ${
                     pathname === link.href 
                       ? isScrolled 
-                        ? 'text-blue-600 bg-blue-50' 
-                        : 'text-blue-400 bg-white/10 backdrop-blur-sm'
+                        ? 'text-blue-600' 
+                        : 'text-blue-400'
                       : isScrolled 
-                        ? 'text-gray-700 hover:text-blue-600 hover:bg-gray-50' 
-                        : 'text-gray-300 hover:text-white hover:bg-white/10 backdrop-blur-sm'
+                        ? 'text-gray-700 hover:text-blue-600' 
+                        : 'text-gray-300 hover:text-white'
                   }`}
                 >
                   {link.label}
-                  <span className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ${
+                  {/* <span className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300 ${
                     pathname === link.href ? 'w-6' : 'w-0 group-hover:w-6'
-                  }`}></span>
+                  }`}></span> */}
                 </Link>
               ))}
             </nav>
-
-
 
             {/* Mobile Menu Button */}
             <button
@@ -155,7 +153,6 @@ const Header = () => {
                 </li>
               ))}
             </ul>
-
           </nav>
         </div>
       </div>

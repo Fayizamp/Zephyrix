@@ -76,13 +76,13 @@ const Footer = () => {
                   <Link
                     href="https://www.instagram.com/zephyrixtech/"
                     target="_blank"
-                    className="w-12 h-12 bg-gradient-to-br from-pink-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg group/social"
+                    className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg group/social"
                   >
                     <Instagram className="w-5 h-5 text-white group-hover/social:scale-110 transition-transform duration-300" />
                   </Link>
                   <Link
                     href="mailto:zephyrixtech@gmail.com"
-                    className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg group/social"
+                    className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg group/social"
                   >
                     <Mail className="w-5 h-5 text-white group-hover/social:scale-110 transition-transform duration-300" />
                   </Link>
@@ -159,9 +159,9 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="flex items-center space-x-2 text-slate-400 hover:text-slate-300 transition-colors duration-300">
-                <span>© 2025 Zephyrix Tech. Made with</span>
-                <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-                <span>in India</span>
+                <span>© 2025 Zephyrix Tech. </span>
+                {/* <Heart className="w-4 h-4 text-red-500 animate-pulse" />
+                <span>in India</span> */}
               </div>
               
               <div className="flex items-center space-x-6">

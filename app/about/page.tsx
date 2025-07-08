@@ -1,382 +1,703 @@
 'use client';
-
-import { useEffect, useRef, useState } from 'react';
-import { Users, Target, Award, Clock, Lightbulb, Shield, TrendingUp, Globe, Sparkles, ChevronDown, Play, Pause, Star, MapPin, Calendar, ArrowRight } from 'lucide-react';
-
+import React, { useEffect, useRef, useState } from 'react';
+import { 
+  Users, Target, Award, Clock, Lightbulb, Shield, TrendingUp, Globe, 
+  Sparkles, ChevronDown, Play, Pause, Star, MapPin, Calendar, ArrowRight,
+  Mail, Linkedin, Twitter, Github, Heart, Zap, Rocket, Eye, CheckCircle,
+  Building, Code, Headphones, Palette, Database, Smartphone
+} from 'lucide-react';
 
 const AboutPage = () => {
   const pageRef = useRef<HTMLElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [activeTab, setActiveTab] = useState<'mission' | 'vision' | 'approach'>('mission');
+  const [activeTab, setActiveTab] = useState<'mission' | 'vision' | 'values'>('mission');
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            entry.target.classList.add('animate-in');
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.1, rootMargin: '50px' }
     );
 
-    const elements = pageRef.current?.querySelectorAll('.fade-in-section');
+    const elements = pageRef.current?.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .scale-in');
     elements?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   const stats = [
-    { icon: Users, label: 'Happy Clients', value: '500+', gradient: 'from-blue-500 to-cyan-500', description: 'Satisfied customers worldwide' },
-    { icon: Award, label: 'Years Experience', value: '15+', gradient: 'from-purple-500 to-pink-500', description: 'Industry expertise' },
-    { icon: Target, label: 'Success Rate', value: '98%', gradient: 'from-green-500 to-emerald-500', description: 'Project completion' },
-    { icon: Clock, label: 'Support', value: '24/7', gradient: 'from-orange-500 to-red-500', description: 'Always available' },
+    { 
+      icon: Users, 
+      label: 'Happy Clients', 
+      value: '2,500+', 
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50',
+      description: 'Satisfied customers globally'
+    },
+    { 
+      icon: Award, 
+      label: 'Awards Won', 
+      value: '45+', 
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-50',
+      description: 'Industry recognitions'
+    },
+    { 
+      icon: Target, 
+      label: 'Projects Done', 
+      value: '1,200+', 
+      color: 'text-green-600',
+      bgColor: 'bg-green-50',
+      description: 'Successfully completed'
+    },
+    { 
+      icon: Clock, 
+      label: 'Years Experience', 
+      value: '15+', 
+      color: 'text-orange-600',
+      bgColor: 'bg-orange-50',
+      description: 'Industry expertise'
+    },
   ];
 
-  const values = [
+  const coreValues = [
     {
       icon: Lightbulb,
       title: 'Innovation',
-      description: 'Constantly pushing boundaries to create cutting-edge solutions that transform industries and drive progress.',
-      gradient: 'from-yellow-500 to-orange-500',
+      description: 'We constantly push the boundaries of technology to create cutting-edge solutions that transform industries and drive progress forward.',
+      color: 'text-yellow-600',
+      bgColor: 'bg-yellow-50',
+      borderColor: 'border-yellow-200'
     },
     {
       icon: Shield,
-      title: 'Excellence',
-      description: 'Committed to delivering the highest quality in everything we do, exceeding expectations at every turn.',
-      gradient: 'from-blue-500 to-purple-500',
+      title: 'Trust & Security',
+      description: 'Building secure, reliable solutions with unwavering commitment to data protection and ethical business practices.',
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50',
+      borderColor: 'border-blue-200'
     },
     {
-      icon: Users,
-      title: 'Integrity',
-      description: 'Building trust through transparency, ethical practices, and unwavering commitment to our values.',
-      gradient: 'from-green-500 to-teal-500',
+      icon: Heart,
+      title: 'Client-Centric',
+      description: 'Every decision we make is driven by our commitment to delivering exceptional value and exceeding client expectations.',
+      color: 'text-red-600',
+      bgColor: 'bg-red-50',
+      borderColor: 'border-red-200'
     },
     {
       icon: TrendingUp,
-      title: 'Growth',
-      description: 'Fostering continuous learning and development for our team and clients to achieve sustainable success.',
-      gradient: 'from-pink-500 to-rose-500',
+      title: 'Excellence',
+      description: 'Striving for perfection in every project, maintaining the highest standards of quality and continuous improvement.',
+      color: 'text-green-600',
+      bgColor: 'bg-green-50',
+      borderColor: 'border-green-200'
     },
   ];
 
-  const milestones = [
-    { year: '2010', title: 'Company Founded', description: 'Started with a vision to transform businesses through technology', icon: '🚀' },
-    { year: '2015', title: 'First Major Product', description: 'Launched our flagship ERP solution serving 100+ clients', icon: '🏆' },
-    { year: '2020', title: 'Global Expansion', description: 'Expanded operations to serve clients across 25+ countries', icon: '🌍' },
-    { year: '2025', title: 'Innovation Hub', description: 'Established as a leading innovation hub in the region', icon: '⚡' },
+  const teamMembers = [
+    {
+      name: 'Sarah Johnson',
+      position: 'CEO & Founder',
+      description: 'Visionary leader with 15+ years in tech innovation',
+      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b739?w=400&h=400&fit=crop&crop=face',
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50',
+      linkedin: '#',
+      email: 'sarah@zephyrixtech.com'
+    },
+    {
+      name: 'Michael Chen',
+      position: 'CTO',
+      description: 'Technical architect specializing in scalable solutions',
+      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-50',
+      linkedin: '#',
+      email: 'michael@zephyrixtech.com'
+    },
+    {
+      name: 'Emily Rodriguez',
+      position: 'Head of Design',
+      description: 'Creative director crafting intuitive user experiences',
+      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
+      color: 'text-pink-600',
+      bgColor: 'bg-pink-50',
+      linkedin: '#',
+      email: 'emily@zephyrixtech.com'
+    },
+    {
+      name: 'David Kim',
+      position: 'Lead Developer',
+      description: 'Full-stack expert in modern web technologies',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
+      color: 'text-green-600',
+      bgColor: 'bg-green-50',
+      linkedin: '#',
+      email: 'david@zephyrixtech.com'
+    },
+    {
+      name: 'Lisa Wang',
+      position: 'Product Manager',
+      description: 'Strategic thinker driving product innovation',
+      image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face',
+      color: 'text-teal-600',
+      bgColor: 'bg-teal-50',
+      linkedin: '#',
+      email: 'lisa@zephyrixtech.com'
+    },
+    {
+      name: 'Alex Thompson',
+      position: 'Marketing Director',
+      description: 'Brand strategist with digital marketing expertise',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
+      color: 'text-orange-600',
+      bgColor: 'bg-orange-50',
+      linkedin: '#',
+      email: 'alex@zephyrixtech.com'
+    }
   ];
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "CEO, TechCorp",
-      content: "Zephyrix Tech transformed our entire business process. Their innovative solutions helped us increase efficiency by 200%.",
+      name: "Jennifer Martinez",
+      role: "CEO, TechCorp Solutions",
+      content: "Zephyrix Tech transformed our entire digital infrastructure. Their innovative approach and attention to detail exceeded all our expectations.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b739?w=100&h=100&fit=crop&crop=face"
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b739?w=100&h=100&fit=crop&crop=face",
+      company: "TechCorp Solutions"
     },
     {
-      name: "Michael Chen",
+      name: "Robert Chen",
       role: "CTO, InnovateLabs",
-      content: "Outstanding technical expertise and customer service. They delivered beyond our expectations.",
+      content: "Outstanding technical expertise and project management. They delivered our complex system on time and within budget.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face"
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      company: "InnovateLabs"
     },
     {
-      name: "Emily Rodriguez",
+      name: "Amanda Foster",
       role: "Founder, StartupX",
-      content: "Professional, reliable, and innovative. Zephyrix Tech is our go-to partner for all tech solutions.",
+      content: "Professional, reliable, and truly innovative. Zephyrix Tech has been our trusted technology partner for over 5 years.",
       rating: 5,
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face"
+      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      company: "StartupX"
     }
   ];
 
   const tabContent = {
     mission: {
       title: "Our Mission",
-      content: "We are dedicated to transforming businesses through innovative software solutions. Our mission is to empower organizations with cutting-edge technology that drives growth, efficiency, and success in the digital age.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+      content: "To empower businesses worldwide with innovative technology solutions that drive growth, efficiency, and digital transformation. We believe in creating tools that not only solve today's challenges but anticipate tomorrow's opportunities.",
+      icon: Target,
+      color: 'text-blue-600'
     },
     vision: {
       title: "Our Vision",
-      content: "To be the leading global technology partner, creating innovative solutions that revolutionize industries and empower businesses to thrive in the digital future.",
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop"
+      content: "To be the global leader in technology innovation, creating a future where businesses can achieve unlimited potential through intelligent, scalable, and sustainable digital solutions.",
+      icon: Eye,
+      color: 'text-purple-600'
     },
-    approach: {
-      title: "Our Approach",
-      content: "We combine cutting-edge technology with deep industry expertise to deliver customized solutions that address unique business challenges and drive measurable results.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    values: {
+      title: "Our Values",
+      content: "We are guided by integrity, innovation, and excellence. Our commitment to ethical practices, continuous learning, and client success forms the foundation of everything we do.",
+      icon: Heart,
+      color: 'text-red-600'
     }
   };
 
-  const scrollToNext = () => {
-    const nextSection = document.getElementById('mission-section');
-    nextSection?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    section?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <main ref={pageRef} className="relative">
-
-      {/* Dark Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 text-white">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/4 w-48 h-48 bg-cyan-500/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+    <main ref={pageRef} className="relative bg-white overflow-hidden ">
+      {/* Hero Section - Light Theme */}
+      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 pt-16 sm:pt-20 md:pt-24 lg:pt-0">
+        {/* Subtle Background Pattern */}
+        <div className="absolute inset-0 opacity-30 ">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                             radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.1) 0%, transparent 50%)`
+          }}></div>
         </div>
 
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-bounce" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-bounce" style={{ animationDelay: '3s' }}></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="animate-fadeIn">
-            <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-2 mb-8 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-blue-400 animate-pulse" />
-              <span className="text-sm font-medium text-blue-400">About Us</span>
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              About{' '}
-              <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent animate-pulse">
-                Zephyrix Tech
-              </span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Shaping the Future with Innovative Solutions and Empowering the Next Generation of Tech Leaders
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <button className="group bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-full hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
-                <span className="flex items-center gap-2">
-                  Get Started
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
-              <button 
-                onClick={() => setIsPlaying(!isPlaying)}
-                className="group flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-3 rounded-full hover:bg-white/20 transition-all duration-300"
-              >
-                {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
-                Watch Demo
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <button 
-          onClick={scrollToNext}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 hover:text-white transition-colors animate-bounce"
-        >
-          <ChevronDown className="w-8 h-8" />
-        </button>
-      </section>
-
-      {/* Light Theme Sections */}
-      <div className="bg-white text-gray-900">
-        {/* Mission/Vision/Approach Section */}
-        <section id="mission-section" className="py-12 sm:py-16 md:py-24 relative overflow-hidden bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 sm:mb-16 md:mb-20 fade-in-section">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent tracking-tight">
-                Discover Zephyrix Tech
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                Unravel our mission, vision, and approach to pioneering technology innovation
-              </p>
-            </div>
-
-            <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
-              <div className="w-full lg:w-1/2 fade-in-section">
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6 sm:mb-8 md:mb-10 bg-white rounded-full p-2 sm:p-3 shadow-sm border border-gray-100">
-                  {(['mission', 'vision', 'approach'] as const).map((tab) => (
-                    <button
-                      key={tab}
-                      onClick={() => setActiveTab(tab)}
-                      className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 rounded-full font-medium text-xs sm:text-sm tracking-wide capitalize transition-all duration-300 flex-1 sm:flex-none text-center ${
-                        activeTab === tab
-                          ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-md'
-                          : 'text-gray-600 hover:text-blue-600 hover:bg-gray-100'
-                      }`}
-                    >
-                      {tab}
-                    </button>
-                  ))}
+        <div className="relative z-10 max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
+          <div className="fade-in-up">
+            <div className="grid grid-cols-1 pt-7 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
+              {/* Left Content */}
+              <div className="text-left">
+                {/* Badge */}
+                <div className="inline-flex items-center space-x-2 bg-white/90 backdrop-blur-sm border border-blue-200 rounded-full px-6 py-3 mb-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                  <Building className="w-5 h-5 text-blue-600" />
+                  <span className="text-sm font-semibold text-slate-800">About Zephyrix Tech</span>
                 </div>
                 
-                <div className="space-y-6 sm:space-y-8">
-                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-                    {tabContent[activeTab].title}
-                  </h3>
-                  <p className="text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-                    {tabContent[activeTab].content}
-                  </p>
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 pt-4 sm:pt-6">
-                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 font-medium">
-                      <MapPin className="w-4 sm:w-5 h-4 sm:h-5 text-blue-500" />
-                      Global Presence
+                {/* Main Heading */}
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 leading-tight text-slate-800">
+                  Innovating the Future of{' '}
+                  <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    Digital Solutions
+                  </span>
+                </h1>
+                
+                {/* Subtitle */}
+                <p className="text-base sm:text-lg md:text-xl text-slate-600 mb-6 sm:mb-8 leading-relaxed">
+                  We empower businesses worldwide with cutting-edge technology solutions, innovative strategies, and exceptional digital experiences that drive sustainable growth.
+                </p>
+
+                {/* Feature Highlights */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                  <div className="flex items-center gap-2 sm:gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-slate-200">
+                    <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                      <Code className="w-5 h-5 text-blue-600" />
                     </div>
-                    <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 font-medium">
-                      <Calendar className="w-4 sm:w-5 h-4 sm:h-5 text-blue-500" />
-                      Since 2010
+                    <div>
+                      <p className="font-semibold text-slate-800 text-sm">Custom Development</p>
+                      <p className="text-xs text-slate-600">Tailored solutions</p>
                     </div>
                   </div>
+                  <div className="flex items-center gap-2 sm:gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-slate-200">
+                    <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                      <Palette className="w-5 h-5 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-800 text-sm">UI/UX Design</p>
+                      <p className="text-xs text-slate-600">Beautiful interfaces</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 sm:gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-slate-200">
+                    <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                      <Database className="w-5 h-5 text-green-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-800 text-sm">Data Analytics</p>
+                      <p className="text-xs text-slate-600">Smart insights</p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 sm:gap-3 bg-white/60 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-slate-200">
+                    <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
+                      <Smartphone className="w-5 h-5 text-orange-600" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-800 text-sm">Mobile Apps</p>
+                      <p className="text-xs text-slate-600">Cross-platform</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                  <button 
+                    onClick={() => scrollToSection('mission-section')}
+                    className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
+                  >
+                    <span className="flex items-center gap-2 justify-center">
+                      Explore Our Story
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                    </span>
+                  </button>
+                  <button 
+                    onClick={() => setIsPlaying(!isPlaying)}
+                    className="group flex items-center gap-2 sm:gap-3 bg-white/80 backdrop-blur-sm border border-slate-300 text-slate-700 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white hover:shadow-lg transition-all duration-300 justify-center text-sm sm:text-base"
+                  >
+                    {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
+                    Watch Demo
+                  </button>
                 </div>
               </div>
               
-              <div className="w-full lg:w-1/2 fade-in-section">
-                <div className="relative group">
-                  <img
-                    src={tabContent[activeTab].image}
-                    alt={tabContent[activeTab].title}
-                    className="w-full h-auto rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105 group-hover:shadow-3xl"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent rounded-2xl transition-opacity duration-300 group-hover:opacity-80"></div>
+              {/* Right Content - Interactive Elements */}
+              <div className="relative">
+                <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-2xl border border-slate-200">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                      <Rocket className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-base sm:text-lg font-semibold text-slate-800">Why Choose Us?</h3>
+                      <p className="text-xs sm:text-sm text-slate-600">Excellence in every project</p>
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-sm sm:text-base text-slate-700">15+ Years of Industry Experience</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-sm sm:text-base text-slate-700">2,500+ Successful Projects Delivered</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-sm sm:text-base text-slate-700">24/7 Dedicated Support Team</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                      <span className="text-sm sm:text-base text-slate-700">Global Presence in 25+ Countries</span>
+                    </div>
+                  </div>
+                  
+                  <div className="mt-6 pt-6 border-t border-slate-200">
+                    <div className="flex items-center justify-between">
+                      <div className="text-center">
+                        <div className="text-xl sm:text-2xl font-bold text-blue-600">98%</div>
+                        <div className="text-xs text-slate-600">Success Rate</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-xl sm:text-2xl font-bold text-purple-600">45+</div>
+                        <div className="text-xs text-slate-600">Awards Won</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-xl sm:text-2xl font-bold text-green-600">24/7</div>
+                        <div className="text-xs text-slate-600">Support</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                
+                {/* Floating Elements */}
+                <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-6 sm:w-8 h-6 sm:h-8 bg-blue-500 rounded-full animate-pulse"></div>
+                <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-4 sm:w-6 h-4 sm:h-6 bg-purple-500 rounded-full animate-pulse delay-1000"></div>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Stats Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent fade-in-section">
-              Our Impact
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="fade-in-section bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center group"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <div className={`w-20 h-20 bg-gradient-to-br ${stat.gradient} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <stat.icon className="w-10 h-10 text-white" />
-                  </div>
-                  <div className="text-4xl font-bold mb-2 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
-                    {stat.value}
-                  </div>
-                  <p className="text-gray-900 font-medium mb-2">{stat.label}</p>
-                  <p className="text-sm text-gray-500">{stat.description}</p>
-                </div>
-              ))}
+            
+            {/* Scroll Indicator */}
+            <div className="flex flex-col items-center gap-2 text-slate-500 mt-16">
+              <span className="text-sm font-medium">Discover More</span>
+              <button 
+                onClick={() => scrollToSection('mission-section')}
+                className="animate-bounce hover:text-blue-600 transition-colors"
+              >
+                <ChevronDown className="w-6 h-6" />
+              </button>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Values Section */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent fade-in-section">
-              Our Values
+      {/* Mission/Vision/Values Section */}
+      <section id="mission-section" className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 fade-in-up">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
+              What Drives Us
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {values.map((value, index) => (
-                <div
-                  key={index}
-                  className="fade-in-section bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 text-center group border border-gray-100"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <div className={`w-20 h-20 bg-gradient-to-br ${value.gradient} rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <value.icon className="w-10 h-10 text-white" />
-                  </div>
-                  <h3 className="text-xl font-semibold mb-4 text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Our foundation is built on clear principles that guide every decision we make
+            </p>
           </div>
-        </section>
 
-        {/* Timeline Section */}
-        <section className="py-20 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent fade-in-section">
-              Our Journey
-            </h2>
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
-              <div className="space-y-12">
-                {milestones.map((milestone, index) => (
-                  <div
-                    key={index}
-                    className={`fade-in-section flex items-center ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}
-                    style={{ animationDelay: `${index * 300}ms` }}
+          <div className="flex flex-col lg:flex-row gap-8 sm:gap-12 items-center">
+            {/* Tabs */}
+            <div className="w-full lg:w-1/2 fade-in-left">
+              <div className="flex flex-wrap gap-2 sm:gap-4 mb-6 sm:mb-8 justify-center lg:justify-start">
+                {(['mission', 'vision', 'values'] as const).map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                      activeTab === tab
+                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg text-sm sm:text-base'
+                        : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
+                    } text-sm sm:text-base px-4 sm:px-6 py-2 sm:py-3`}
                   >
-                    <div className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}>
-                      <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
-:
-
-                        <div className="text-3xl mb-4">{milestone.icon}</div>
-                        <div className="text-2xl font-bold text-blue-600 mb-2">{milestone.year}</div>
-                        <h3 className="text-xl font-semibold text-gray-900 mb-3">{milestone.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
-                      </div>
-                    </div>
-                    <div className="relative z-10">
-                      <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full border-4 border-white shadow-lg flex items-center justify-center">
-                        <div className="w-2 h-2 bg-white rounded-full"></div>
-                      </div>
-                    </div>
-                    <div className="w-1/2"></div>
-                  </div>
+                    {React.createElement(tabContent[tab].icon, { className: "w-5 h-5" })}
+                    {tab.charAt(0).toUpperCase() + tab.slice(1)}
+                  </button>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className="py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-4xl font-bold text-centerulto mb-16 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent fade-in-section">
-              What Our Clients Say
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {testimonials.map((testimonial, index) => (
-                <div
-                  key={index}
-                  className="fade-in-section bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
-                  style={{ animationDelay: `${index * 200}ms` }}
-                >
-                  <div className="flex items-center gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                    ))}
+              
+              <div className="space-y-6">
+                <h3 className="text-2xl sm:text-3xl font-bold text-slate-800">
+                  {tabContent[activeTab].title}
+                </h3>
+                <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
+                  {tabContent[activeTab].content}
+                </p>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 pt-4">
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <CheckCircle className="w-4 h-4 text-green-600" />
+                    Proven Track Record
                   </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed">"{testimonial.content}"</p>
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                      <p className="text-sm text-gray-500">{testimonial.role}</p>
-                    </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-500">
+                    <CheckCircle className="w-4 h-4 text-green-600" />
+                    Global Impact
                   </div>
                 </div>
-              ))}
+              </div>
+            </div>
+            
+            {/* Image */}
+            <div className="w-full lg:w-1/2 fade-in-right">
+              <div className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl sm:rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity duration-300"></div>
+                <img
+                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=400&fit=crop"
+                  alt="Team collaboration"
+                  className="relative w-full h-auto rounded-xl sm:rounded-2xl shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
             </div>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
+      {/* Stats Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 fade-in-up">
+            <h2 className="text-4xl font-bold mb-6 text-slate-800">
+              Our Impact in Numbers
+            </h2>
+            <p className="text-xl text-slate-600">
+              Measurable results that speak for themselves
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {stats.map((stat, index) => (
+              <div
+                key={index}
+                className="scale-in bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border border-slate-100"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className={`w-14 sm:w-16 h-14 sm:h-16 ${stat.bgColor} rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <stat.icon className={`w-8 h-8 ${stat.color}`} />
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold mb-2 text-slate-800">
+                  {stat.value}
+                </div>
+                <p className="text-sm sm:text-base text-slate-900 font-medium mb-2">{stat.label}</p>
+                <p className="text-sm text-slate-500">{stat.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 fade-in-up">
+            <h2 className="text-4xl font-bold mb-6 text-slate-800">
+              Our Core Values
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              The principles that guide our work and define our culture
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {coreValues.map((value, index) => (
+              <div
+                key={index}
+                className={`scale-in bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border-2 ${value.borderColor}`}
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className={`w-14 sm:w-16 h-14 sm:h-16 ${value.bgColor} rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <value.icon className={`w-8 h-8 ${value.color}`} />
+                </div>
+                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
+                  {value.title}
+                </h3>
+                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-purple-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 fade-in-up">
+            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-purple-200 rounded-full px-6 py-3 mb-6">
+              <Users className="w-5 h-5 text-purple-600" />
+              <span className="text-sm font-semibold text-slate-800">Our Team</span>
+            </div>
+            <h2 className="text-4xl font-bold mb-6 text-slate-800">
+              Meet the Innovators
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Talented individuals united by a shared passion for technology and excellence
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+            {teamMembers.map((member, index) => (
+              <div
+                key={index}
+                className="scale-in bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border border-slate-100"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <div className="relative overflow-hidden h-48 sm:h-64">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className={`absolute top-4 right-4 w-12 h-12 ${member.bgColor} rounded-full flex items-center justify-center shadow-lg`}>
+                    <Sparkles className={`w-6 h-6 ${member.color}`} />
+                  </div>
+                </div>
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-xl font-semibold mb-2 text-slate-800">{member.name}</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mb-3 font-medium">{member.position}</p>
+                  <p className="text-sm text-slate-500 mb-4 leading-relaxed">{member.description}</p>
+                  <div className="flex justify-center space-x-2 sm:space-x-3">
+                    <a
+                      href={member.linkedin}
+                      className={`w-8 sm:w-10 h-8 sm:h-10 ${member.bgColor} rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300`}
+                    >
+                      <Linkedin className={`w-4 sm:w-5 h-4 sm:h-5 ${member.color}`} />
+                    </a>
+                    <a
+                      href={`mailto:${member.email}`}
+                      className={`w-8 sm:w-10 h-8 sm:h-10 ${member.bgColor} rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300`}
+                    >
+                      <Mail className={`w-4 sm:w-5 h-4 sm:h-5 ${member.color}`} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12 sm:mb-16 fade-in-up">
+            <h2 className="text-4xl font-bold mb-6 text-slate-800">
+              What Our Clients Say
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Real feedback from companies that trust us with their digital transformation
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="scale-in bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-slate-100"
+                style={{ animationDelay: `${index * 200}ms` }}
+              >
+                <div className="flex items-center gap-1 mb-3 sm:mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                  ))}
+                </div>
+                <p className="text-sm sm:text-base text-slate-600 mb-4 sm:mb-6 leading-relaxed">"{testimonial.content}"</p>
+                <div className="flex items-center gap-3">
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="text-sm sm:text-base font-semibold text-slate-900">{testimonial.name}</p>
+                    <p className="text-xs sm:text-sm text-slate-500">{testimonial.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-gradient-to-br from-blue-600 to-purple-700">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.3)_0%,transparent_50%)]"></div>
+          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.3)_0%,transparent_50%)]"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-8 sm:py-12">
+          <div className="fade-in-up">
+            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
+              <Zap className="w-5 h-5 text-yellow-400" />
+              <span className="text-xs sm:text-sm font-semibold">Ready to Get Started?</span>
+            </div>
+            
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
+              Let's Build Something{' '}
+              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                Amazing Together
+              </span>
+            </h2>
+            
+            <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed">
+              Transform your business with our innovative solutions. Join over 2,500 satisfied clients who trust us to deliver exceptional results.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-12">
+              <button className="group bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base">
+                <span className="flex items-center gap-2">
+                  Start Your Project
+                  <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+              </button>
+              <button className="group flex items-center gap-2 sm:gap-3 border-2 border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base">
+                <Headphones className="w-5 h-5" />
+                Schedule Consultation
+              </button>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto">
+              <div className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
+                <Shield className="w-6 h-6 text-green-400" />
+                <div className="text-left">
+                  <p className="font-semibold text-xs sm:text-sm">Secure & Reliable</p>
+                  <p className="text-xs opacity-80">Enterprise-grade security</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
+                <Award className="w-6 h-6 text-yellow-400" />
+                <div className="text-left">
+                  <p className="font-semibold text-xs sm:text-sm">Award Winning</p>
+                  <p className="text-xs opacity-80">45+ industry awards</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
+                <Users className="w-6 h-6 text-blue-400" />
+                <div className="text-left">
+                  <p className="font-semibold text-xs sm:text-sm">Expert Team</p>
+                  <p className="text-xs opacity-80">100+ skilled professionals</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Custom Styles */}
       <style jsx>{`
-        @keyframes fadeIn {
+        @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
           }
           to {
             opacity: 1;
@@ -384,27 +705,70 @@ const AboutPage = () => {
           }
         }
 
-        .animate-fadeIn {
-          animation: fadeIn 1s ease-out;
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
 
-        .fade-in-section {
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+
+        .fade-in-up {
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+          animation: fadeInUp 0.8s ease-out forwards;
         }
 
-        .fade-in-section.is-visible {
-          opacity: 1;
-          transform: translateY(0);
+        .fade-in-left {
+          opacity: 0;
+          animation: fadeInLeft 0.8s ease-out forwards;
         }
 
-        .hover-scale {
-          transition: transform 0.3s ease;
+        .fade-in-right {
+          opacity: 0;
+          animation: fadeInRight 0.8s ease-out forwards;
         }
 
-        .hover-scale:hover {
-          transform: scale(1.05);
+        .scale-in {
+          opacity: 0;
+          animation: scaleIn 0.8s ease-out forwards;
+        }
+
+        .fade-in-up.animate-in,
+        .fade-in-left.animate-in,
+        .fade-in-right.animate-in,
+        .scale-in.animate-in {
+          animation-play-state: running;
+        }
+
+        @media (max-width: 768px) {
+          .fade-in-up, .fade-in-left, .fade-in-right, .scale-in {
+            animation-delay: 0.1s !important;
+          }
         }
       `}</style>
     </main>
