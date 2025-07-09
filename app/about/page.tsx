@@ -43,32 +43,32 @@ const AboutPage = () => {
       icon: Users, 
       label: 'Happy Clients', 
       value: '2,500+', 
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      color: 'text-white',
+      bgColor: 'from-blue-500 to-blue-700',
       description: 'Satisfied customers globally'
     },
     { 
       icon: Award, 
       label: 'Awards Won', 
       value: '45+', 
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
+      color: 'text-white',
+      bgColor: 'from-purple-500 to-purple-700',
       description: 'Industry recognitions'
     },
     { 
       icon: Target, 
       label: 'Projects Done', 
       value: '1,200+', 
-      color: 'text-green-600',
-      bgColor: 'bg-green-50',
+      color: 'text-white',
+      bgColor: 'from-green-500 to-green-700',
       description: 'Successfully completed'
     },
     { 
       icon: Clock, 
       label: 'Years Experience', 
       value: '15+', 
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
+      color: 'text-white',
+      bgColor: 'from-orange-500 to-orange-700',
       description: 'Industry expertise'
     },
   ];
@@ -78,35 +78,35 @@ const AboutPage = () => {
       icon: Lightbulb,
       title: 'Innovation',
       description: 'We constantly push the boundaries of technology to create cutting-edge solutions that transform industries and drive progress forward.',
-      color: 'text-yellow-600',
-      bgColor: 'bg-yellow-50',
+      color: 'text-white',
+      bgColor: 'from-yellow-500 to-yellow-700',
       borderColor: 'border-yellow-200'
     },
     {
       icon: Shield,
       title: 'Trust & Security',
       description: 'Building secure, reliable solutions with unwavering commitment to data protection and ethical business practices.',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
+      color: 'text-white',
+      bgColor: 'from-blue-500 to-blue-700',
       borderColor: 'border-blue-200'
     },
     {
       icon: Heart,
       title: 'Client-Centric',
       description: 'Every decision we make is driven by our commitment to delivering exceptional value and exceeding client expectations.',
-      color: 'text-red-600',
-      bgColor: 'bg-red-50',
+      color: 'text-white',
+      bgColor: 'from-red-500 to-red-700',
       borderColor: 'border-red-200'
     },
     {
       icon: TrendingUp,
       title: 'Excellence',
       description: 'Striving for perfection in every project, maintaining the highest standards of quality and continuous improvement.',
-      color: 'text-green-600',
-      bgColor: 'bg-green-50',
+      color: 'text-white',
+      bgColor: 'from-green-500 to-green-700',
       borderColor: 'border-green-200'
     },
-  ];
+];
 
   const teamMembers = [
     {
@@ -218,6 +218,37 @@ const AboutPage = () => {
       color: 'text-red-600'
     }
   };
+
+  const TeamMembers = [
+  {
+    name: "Sarah Chen",
+    position: "Lead Developer",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
+    linkedin: "#",
+    email: "sarah@example.com",
+    bgColor: "bg-gradient-to-br from-purple-500 to-pink-500",
+    color: "text-white"
+  },
+  {
+    name: "Marcus Rodriguez",
+    position: "UI/UX Designer",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    linkedin: "#",
+    email: "marcus@example.com",
+    bgColor: "bg-gradient-to-br from-blue-500 to-cyan-500",
+    color: "text-white"
+  },
+  {
+    name: "Emily Watson",
+    position: "Product Manager",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+    linkedin: "#",
+    email: "emily@example.com",
+    bgColor: "bg-gradient-to-br from-emerald-500 to-teal-500",
+    color: "text-white"
+  }
+];
+
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -371,9 +402,6 @@ const AboutPage = () => {
                   </div>
                 </div>
                 
-                {/* Floating Elements */}
-                <div className="absolute -top-2 sm:-top-4 -right-2 sm:-right-4 w-6 sm:w-8 h-6 sm:h-8 bg-blue-500 rounded-full animate-pulse"></div>
-                <div className="absolute -bottom-2 sm:-bottom-4 -left-2 sm:-left-4 w-4 sm:w-6 h-4 sm:h-6 bg-purple-500 rounded-full animate-pulse delay-1000"></div>
               </div>
             </div>
             
@@ -477,7 +505,7 @@ const AboutPage = () => {
                 className="scale-in bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border border-slate-100"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                <div className={`w-14 sm:w-16 h-14 sm:h-16 ${stat.bgColor} rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                <div className={`w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br ${stat.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:animate-wiggle transition-all duration-300 shadow-lg`}>
                   <stat.icon className={`w-8 h-8 ${stat.color}`} />
                 </div>
                 <div className="text-2xl sm:text-3xl font-bold mb-2 text-slate-800">
@@ -492,98 +520,101 @@ const AboutPage = () => {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 fade-in-up">
-            <h2 className="text-4xl font-bold mb-6 text-slate-800">
-              Our Core Values
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              The principles that guide our work and define our culture
-            </p>
+<section className="py-12 sm:py-16 md:py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12 sm:mb-16 fade-in-up">
+      <h2 className="text-4xl font-bold mb-6 text-slate-800">
+        Our Core Values
+      </h2>
+      <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+        The principles that guide our work and define our culture
+      </p>
+    </div>
+    
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+      {coreValues.map((value, index) => (
+        <div
+          key={index}
+          className={`scale-in bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border-2 ${value.borderColor}`}
+          style={{ animationDelay: `${index * 200}ms` }}
+        >
+          <div className={`w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-br ${value.bgColor} rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:animate-wiggle transition-all duration-300 shadow-lg`}>
+            <value.icon className={`w-8 h-8 ${value.color}`} />
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {coreValues.map((value, index) => (
-              <div
-                key={index}
-                className={`scale-in bg-white rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border-2 ${value.borderColor}`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className={`w-14 sm:w-16 h-14 sm:h-16 ${value.bgColor} rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                  <value.icon className={`w-8 h-8 ${value.color}`} />
-                </div>
-                <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
-                  {value.title}
-                </h3>
-                <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
+          <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4 text-slate-800 group-hover:text-blue-600 transition-colors duration-300">
+            {value.title}
+          </h3>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+            {value.description}
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Team Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-purple-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16 fade-in-up">
-            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-purple-200 rounded-full px-6 py-3 mb-6">
-              <Users className="w-5 h-5 text-purple-600" />
-              <span className="text-sm font-semibold text-slate-800">Our Team</span>
-            </div>
-            <h2 className="text-4xl font-bold mb-6 text-slate-800">
-              Meet the Innovators
-            </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Talented individuals united by a shared passion for technology and excellence
-            </p>
+     <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-purple-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 sm:mb-16 fade-in-up">
+          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-purple-200 rounded-full px-6 py-3 mb-6">
+            <Users className="w-5 h-5 text-purple-600" />
+            <span className="text-sm font-semibold text-slate-800">Our Team</span>
           </div>
+          <h2 className="text-4xl font-bold mb-6 text-slate-800">
+            Meet the Innovators
+          </h2>
+        </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="scale-in bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group border border-slate-100"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="relative overflow-hidden h-48 sm:h-64">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className={`absolute top-4 right-4 w-12 h-12 ${member.bgColor} rounded-full flex items-center justify-center shadow-lg`}>
-                    <Sparkles className={`w-6 h-6 ${member.color}`} />
-                  </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+          {TeamMembers.map((member, index) => (
+            <div
+              key={index}
+              className="scale-in group"
+              style={{ animationDelay: `${index * 150}ms` }}
+            >
+              <div className="relative overflow-hidden rounded-2xl h-64 sm:h-80 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                
+                {/* Sparkles icon */}
+                <div className={`absolute top-4 right-4 w-12 h-12 ${member.bgColor} rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
+                  <Sparkles className={`w-6 h-6 ${member.color}`} />
                 </div>
-                <div className="p-4 sm:p-6">
-                  <h3 className="text-xl font-semibold mb-2 text-slate-800">{member.name}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 mb-3 font-medium">{member.position}</p>
-                  <p className="text-sm text-slate-500 mb-4 leading-relaxed">{member.description}</p>
-                  <div className="flex justify-center space-x-2 sm:space-x-3">
+                
+                {/* Content overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                  <p className="text-sm text-white/90 mb-4 font-medium">{member.position}</p>
+                  
+                  {/* Social links */}
+                  <div className="flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
                     <a
                       href={member.linkedin}
-                      className={`w-8 sm:w-10 h-8 sm:h-10 ${member.bgColor} rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300`}
+                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"
                     >
-                      <Linkedin className={`w-4 sm:w-5 h-4 sm:h-5 ${member.color}`} />
+                      <Linkedin className="w-5 h-5 text-white" />
                     </a>
                     <a
                       href={`mailto:${member.email}`}
-                      className={`w-8 sm:w-10 h-8 sm:h-10 ${member.bgColor} rounded-full flex items-center justify-center hover:scale-110 transition-transform duration-300`}
+                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"
                     >
-                      <Mail className={`w-4 sm:w-5 h-4 sm:h-5 ${member.color}`} />
+                      <Mail className="w-5 h-5 text-white" />
                     </a>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
-
+      </div>
+</section>
       {/* Testimonials Section */}
       <section className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
