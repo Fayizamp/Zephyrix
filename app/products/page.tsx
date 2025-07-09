@@ -309,7 +309,7 @@ const ProductsPage = () => {
                   className="bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 hover:scale-105"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500 mx-auto mb-2 animate-bounce-subtle" />
+                  <stat.icon className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500 mx-auto mb-2" />
                   <div className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
                   <div className="text-xs sm:text-sm text-gray-600">{stat.label}</div>
                 </div>
