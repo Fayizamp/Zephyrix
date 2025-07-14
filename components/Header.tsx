@@ -18,6 +18,8 @@ const Header = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
+    // Immediately check scroll position on mount
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -38,53 +40,30 @@ const Header = () => {
   ];
 
   const getHeaderStyle = () => {
-    if (isHomePage) {
-      return isScrolled 
-        ? 'bg-white/95 backdrop-blur-lg shadow-2xl border-b border-gray-200/50' 
-        : 'bg-transparent rounder-[25px]';
-    } else {
-      return isScrolled 
-        ? 'bg-white shadow-lg border-b border-gray-200' 
-        : 'bg-transparent';
-    }
+    return isScrolled 
+      ? 'bg-white/95 backdrop-blur-lg shadow-2xl border-b border-gray-200/50' 
+      : 'bg-transparent';
   };
 
   // Determine text color for navigation links
   const getNavLinkStyle = (isActive: boolean) => {
-    if (isHomePage) {
-      if (isActive) {
-        return isScrolled ? 'text-blue-600' : 'text-blue-400';
-      } else {
-        return isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-gray-300 hover:text-white';
-      }
-    } else {
-      return isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600';
-    }
+    return isActive ? 'text-blue-600' : 'text-gray-700 hover:text-blue-600';
   };
 
   // Determine company name color
   const getCompanyNameStyle = () => {
-    if (isHomePage) {
-      return isScrolled ? 'text-gray-800' : 'text-white';
-    } else {
-      return 'text-gray-800';
-    }
+    return 'text-gray-800';
   };
 
   // Determine mobile menu button style
   const getMobileButtonStyle = () => {
-    if (isHomePage) {
-      return isScrolled 
-        ? 'bg-gray-100 hover:bg-gray-200 text-gray-800' 
-        : 'bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white';
-    } else {
-      return 'bg-gray-100 hover:bg-gray-200 text-gray-800';
-    }
+    return 'bg-gray-100 hover:bg-gray-200 text-gray-800';
   };
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-500 ${getHeaderStyle()}`}>
+      {/* Hide header when overlay is open */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${getHeaderStyle()}${isOverlayOpen ? ' hidden' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
@@ -142,7 +121,7 @@ const Header = () => {
 
       {/* Overlay Menu */}
       <div
-        className={`fixed inset-0 z-40 transition-all duration-500 ${
+        className={`fixed inset-0 z-[999] transition-all duration-500 ${
           isOverlayOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}
       >

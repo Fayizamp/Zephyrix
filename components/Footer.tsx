@@ -40,7 +40,7 @@ const Footer = () => {
 
 
 
-      <div className="relative z-10">
+      <div className="relative z-10 p-[5%]">
         {/* Main Footer Content */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
@@ -164,19 +164,13 @@ const Footer = () => {
                 <span>in India</span> */}
               </div>
               
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center ">
                 <Link href="#" className="text-slate-400 hover:text-blue-400 transition-colors duration-300">
                   Privacy Policy
                 </Link>
                 <Link href="#" className="text-slate-400 hover:text-blue-400 transition-colors duration-300">
                   Terms of Service
                 </Link>
-                <button
-                  onClick={scrollToTop}
-                  className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center hover:scale-110 transition-all duration-300 shadow-lg group/scroll"
-                >
-                  <ArrowUp className="w-5 h-5 text-white group-hover/scroll:scale-110 transition-transform duration-300" />
-                </button>
               </div>
             </div>
           </div>
