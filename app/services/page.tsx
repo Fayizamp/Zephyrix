@@ -450,7 +450,7 @@ const ServicesPage: React.FC = () => {
   return (
     <main ref={pageRef} className="relative">
       {/* Enhanced Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+      <section className="relative min-h-screen p-[5%] flex items-center justify-center pt-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
         {/* Animated background elements */}
         {/* <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200 rounded-full opacity-20 animate-pulse"></div>
@@ -460,7 +460,7 @@ const ServicesPage: React.FC = () => {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8 shadow-lg animate-bounce">
+            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8 shadow-lg ">
               <Sparkles className="w-5 h-5 text-blue-600" />
               <span className="text-xs sm:text-sm font-semibold text-blue-600">Premium Digital Services</span>
             </div>
@@ -482,10 +482,10 @@ const ServicesPage: React.FC = () => {
                 <span>Start Your Project</span>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="group bg-white/80 backdrop-blur-sm text-gray-900 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 hover:bg-white hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 font-semibold text-sm sm:text-base">
-                {/* <Play className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
-                <span>Watch Demo</span> */}
-              </button>
+              {/* <button className="group bg-white/80 backdrop-blur-sm text-gray-900 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 rounded-xl sm:rounded-2xl border border-gray-200 hover:bg-white hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 font-semibold text-sm sm:text-base">
+                <Play className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
+                <span>Watch Demo</span>
+              </button> */}
             </div>
 
             {/* Enhanced animated stats */}
@@ -507,7 +507,7 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Enhanced Services Section with Filter */}
-      <section className="py-32 bg-white relative">
+      <section className="p-[5%] bg-white relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <div className="inline-flex items-center space-x-2 bg-blue-50 border border-blue-100 rounded-full px-6 py-3 mb-8">
@@ -711,7 +711,7 @@ const ServicesPage: React.FC = () => {
       )}
 
       {/* Enhanced Process Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-50 to-blue-50">
+      <section className="p-[5%] bg-gradient-to-br from-gray-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-purple-100 rounded-full px-6 py-3 mb-8">
@@ -763,7 +763,7 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Enhanced CTA Section */}
-      <section className="py-32 bg-white">
+      <section className="p-[5%] bg-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-12 border border-gray-100 shadow-xl">
             <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full px-6 py-3 mb-8">
@@ -805,14 +805,6 @@ const ServicesPage: React.FC = () => {
       </section>
 
       {/* Back to Top Button */}
-      {showBackToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 z-50"
-        >
-          <ArrowUp className="w-6 h-6" />
-        </button>
-      )}
 
       {/* Loading Overlay */}
       {isLoading && (
@@ -873,12 +865,6 @@ const ServicesPage: React.FC = () => {
           
           .text-3xl {
             font-size: 1.875rem;
-          }
-        }
-
-        @media (max-width: 768px) {
-          .grid-cols-2 {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
           }
         }
 

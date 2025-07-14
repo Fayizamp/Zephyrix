@@ -258,7 +258,7 @@ const AboutPage = () => {
   return (
     <main ref={pageRef} className="relative bg-white overflow-hidden ">
       {/* Hero Section - Light Theme */}
-      <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 pt-16 sm:pt-20 md:pt-24 lg:pt-0">
+      <section className=" relative min-h-screen flex items-center p-[5%]  justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 pt-16 sm:pt-20 md:pt-24 lg:pt-0">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-30 ">
           <div className="absolute inset-0" style={{
@@ -342,13 +342,6 @@ const AboutPage = () => {
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </span>
                   </button>
-                  <button 
-                    onClick={() => setIsPlaying(!isPlaying)}
-                    className="group flex items-center gap-2 sm:gap-3 bg-white/80 backdrop-blur-sm border border-slate-300 text-slate-700 px-6 sm:px-8 py-3 sm:py-4 rounded-full hover:bg-white hover:shadow-lg transition-all duration-300 justify-center text-sm sm:text-base"
-                  >
-                    {isPlaying ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
-                    Watch Demo
-                  </button>
                 </div>
               </div>
               
@@ -420,7 +413,7 @@ const AboutPage = () => {
       </section>
 
       {/* Mission/Vision/Values Section */}
-      <section id="mission-section" className="py-12 sm:py-16 md:py-20 bg-white">
+      <section id="mission-section" className="p-[5%] sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 fade-in-up">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-slate-800">
@@ -487,7 +480,7 @@ const AboutPage = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      <section className="p-[5%] sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 fade-in-up">
             <h2 className="text-4xl font-bold mb-6 text-slate-800">
@@ -520,7 +513,7 @@ const AboutPage = () => {
       </section>
 
       {/* Core Values Section */}
-<section className="py-12 sm:py-16 md:py-20 bg-white">
+<section className="p-[5%] sm:py-16 md:py-20 bg-white">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-12 sm:mb-16 fade-in-up">
       <h2 className="text-4xl font-bold mb-6 text-slate-800">
@@ -554,7 +547,7 @@ const AboutPage = () => {
 </section>
 
       {/* Team Section */}
-     <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-purple-50">
+     <section className="p-[5%] sm:py-16 md:py-20 bg-gradient-to-br from-slate-50 to-purple-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16 fade-in-up">
           <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-purple-200 rounded-full px-6 py-3 mb-6">
@@ -616,7 +609,7 @@ const AboutPage = () => {
       </div>
 </section>
       {/* Testimonials Section */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
+      <section className="p-[5%] sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 fade-in-up">
             <h2 className="text-4xl font-bold mb-6 text-slate-800">
@@ -658,66 +651,26 @@ const AboutPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 overflow-hidden bg-gradient-to-br from-blue-600 to-purple-700">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.3)_0%,transparent_50%)]"></div>
-          <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_80%,rgba(255,255,255,0.3)_0%,transparent_50%)]"></div>
-        </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-8 sm:py-12">
+      <section className="p-[5%] sm:py-16 md:py-20 bg-gradient-to-br from-gray-100 to-blue-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="fade-in-up">
-            <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8">
-              <Zap className="w-5 h-5 text-yellow-400" />
-              <span className="text-xs sm:text-sm font-semibold">Ready to Get Started?</span>
-            </div>
-            
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-800">
               Let's Build Something{' '}
-              <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                 Amazing Together
               </span>
             </h2>
-            
-            <p className="text-base sm:text-lg md:text-xl mb-8 sm:mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed">
-              Transform your business with our innovative solutions. Join over 2,500 satisfied clients who trust us to deliver exceptional results.
+            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
+              Transform your business with our innovative solutions. Join thousands of satisfied clients.
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-12">
-              <button className="group bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:from-yellow-500 hover:to-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base">
-                <span className="flex items-center gap-2">
-                  Start Your Project
-                  <Rocket className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </span>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-6 py-3 rounded-full hover:from-blue-600 hover:to-purple-600 transition-all duration-300 text-sm sm:text-base">
+                Start Your Project
               </button>
-              <button className="group flex items-center gap-2 sm:gap-3 border-2 border-white/30 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full font-semibold hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm sm:text-base">
+              <button className="flex items-center gap-2 border border-gray-300 text-gray-700 px-6 py-3 rounded-full hover:bg-gray-100 transition-all duration-300 text-sm sm:text-base">
                 <Headphones className="w-5 h-5" />
                 Schedule Consultation
               </button>
-            </div>
-            
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 max-w-4xl mx-auto">
-              <div className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
-                <Shield className="w-6 h-6 text-green-400" />
-                <div className="text-left">
-                  <p className="font-semibold text-xs sm:text-sm">Secure & Reliable</p>
-                  <p className="text-xs opacity-80">Enterprise-grade security</p>
-                </div>
-              </div>
-              <div className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
-                <Award className="w-6 h-6 text-yellow-400" />
-                <div className="text-left">
-                  <p className="font-semibold text-xs sm:text-sm">Award Winning</p>
-                  <p className="text-xs opacity-80">45+ industry awards</p>
-                </div>
-              </div>
-              <div className="flex items-center justify-center gap-2 sm:gap-3 bg-white/10 backdrop-blur-sm rounded-lg p-3 sm:p-4 border border-white/20">
-                <Users className="w-6 h-6 text-blue-400" />
-                <div className="text-left">
-                  <p className="font-semibold text-xs sm:text-sm">Expert Team</p>
-                  <p className="text-xs opacity-80">100+ skilled professionals</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>

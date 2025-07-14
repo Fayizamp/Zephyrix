@@ -132,52 +132,53 @@ const TeamSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 md:gap-6 justify-items-center">
-          {teamMembers.map((member, index) => (
-            <div key={index} className="scale-in team-card w-full max-w-[250px] h-[400px] flex flex-col">
-              <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl border border-slate-100/50 shadow-lg card-hover transition-all duration-300 flex flex-col h-full">
-                <div className="relative overflow-hidden rounded-t-2xl h-[200px]">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    onError={(e) => (e.currentTarget.src = member.fallbackImage)}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-800/20 to-transparent"></div>
-                  <div className={`absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br ${member.gradient} rounded-full flex items-center justify-center shadow-md`}>
-                    <Sparkles className="w-4 h-4 text-white" />
-                  </div>
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                  {teamMembers.map((member, index) => (
+                    <div
+                      key={index}
+                      className="scale-in group"
+                      style={{ animationDelay: `${index * 150}ms` }}
+                    >
+                      <div className="relative overflow-hidden rounded-2xl h-64 sm:h-80 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        />
+                        
+                        {/* Gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                        
+                        {/* Sparkles icon */}
+                        <div className={`absolute top-4 right-4 w-12 h-12  rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
+                          <Sparkles className={`w-6 h-6 `} />
+                        </div>
+                        
+                        {/* Content overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                          <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                          <p className="text-sm text-white/90 mb-4 font-medium">{member.position}</p>
+                          
+                          {/* Social links */}
+                          <div className="flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
+                            <a
+                              href={member.linkedin}
+                              className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"
+                            >
+                              <Linkedin className="w-5 h-5 text-white" />
+                            </a>
+                            <a
+                              href={`mailto:${member.email}`}
+                              className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"
+                            >
+                              <Mail className="w-5 h-5 text-white" />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <div className="p-4 flex flex-col flex-grow justify-between text-center">
-                  <div>
-                    <h3 className="text-base md:text-lg font-semibold mb-1 text-slate-800">{member.name}</h3>
-                    <p className="text-xs md:text-sm text-slate-600 mb-2 font-medium">{member.position}</p>
-                    <p className="text-xs text-slate-600 mb-3 leading-tight">{member.description}</p>
-                  </div>
-                  <div className=" flex justify-center space-x-2">
-                    {member.linkedin !== '#' && (
-                      <Link
-                        href={member.linkedin}
-                        target="_blank"
-                        className={`w-9 h-9 bg-gradient-to-br ${member.gradient} rounded-full flex items-center justify-center icon-hover transition-all duration-300`}
-                      >
-                        <Linkedin className="w-4 h-4 text-white" />
-                      </Link>
-                    )}
-                    {member.email !== '#' && (
-                      <Link
-                        href={`mailto:${member.email}`}
-                        className={`w-9 h-9 bg-gradient-to-br ${member.gradient} rounded-full flex items-center justify-center icon-hover transition-all duration-300`}
-                      >
-                        <Mail className="w-4 h-4 text-white" />
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );

@@ -315,7 +315,7 @@ const ContactPage = () => {
   return (
     <main ref={pageRef} className="bg-white">
       {/* Hero Section - Light Theme */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-16">
+      <section className="relative min-h-screen p-[5%] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 pt-16">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center animate-slide-up">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 border border-blue-200 rounded-full px-6 py-3 mb-8 transform hover:scale-105 transition-all duration-300 shadow-sm">
@@ -358,7 +358,7 @@ const ContactPage = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 sm:py-24 bg-gray-50">
+      <section className=" p-[5%] sm:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 fade-in-section">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -392,7 +392,7 @@ const ContactPage = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 sm:py-24 bg-white">
+      <section className=" p-[5%] sm:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
             {/* Contact Info */}
@@ -579,7 +579,7 @@ const ContactPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 sm:py-24 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className=" p-[5%] sm:py-24 bg-gradient-to-br from-blue-50 to-purple-50">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <div className="card-glass p-8 sm:p-12 rounded-3xl shadow-xl fade-in-section">
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full px-4 py-2 mb-6">
