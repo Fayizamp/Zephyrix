@@ -3,6 +3,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Footer from '@/components/Footer';
+import WhatsappFloat from '@/components/ui/whatsapp-float';
+import ScrollToTopFloat from '@/components/ui/scroll-to-top-float';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -26,6 +28,8 @@ export default function RootLayout({
         </main>
         
         <Footer />
+        <WhatsappFloat />
+        <ScrollToTopFloat />
       </body>
     </html>
   );
