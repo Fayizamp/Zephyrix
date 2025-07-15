@@ -29,7 +29,7 @@ const ProductsSection = () => {
     {
       title: 'ERP System',
       description: 'Streamline your business with our comprehensive ERP solution for optimized operations.',
-      image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/products/ERP.jpg',
       fallbackImage: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI2Y0ZjRmNCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjNDA0MDQwIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5FUlAgU3lzdGVtPC90ZXh0Pjwvc3ZnPg==',
       features: ['Resource Management', 'Inventory Control', 'Business Analytics', 'Real-time Reporting'],
       badge: 'Featured',
@@ -39,7 +39,7 @@ const ProductsSection = () => {
     {
       title: 'Movie Ticket Booking',
       description: 'Seamless movie ticket booking with real-time seat selection and secure payments.',
-      image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/products/flickBooker.png',
       fallbackImage: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI2Y0ZjRmNCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjNDA0MDQwIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Nb3ZpZSBUaWNrZXQ8L3RleHQ+PC9zdmc+',
       features: ['Seat Selection', 'Multiple Theaters', 'Secure Payments', 'Mobile Friendly'],
       badge: 'New',
@@ -49,7 +49,7 @@ const ProductsSection = () => {
     {
       title: 'E-commerce Platform',
       description: 'Feature-rich platform with advanced product management and seamless checkout.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/products/Ecommerce.jpg',
       fallbackImage: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQwMCIgZmlsbD0iI2Y0ZjRmNCIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBmaWxsPSIjNDA0MDQwIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5FLWNvbW1lcmNlPC90ZXh0Pjwvc3ZnPg==',
       features: ['Product Management', 'Secure Checkout', 'Order Tracking', 'Analytics Dashboard'],
       badge: null,

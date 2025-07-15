@@ -161,7 +161,7 @@ const ProductsPage = () => {
     {
       title: 'E-commerce Platform',
       description: 'A comprehensive e-commerce solution with advanced features for modern retail businesses and seamless customer experiences.',
-      image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/products/Ecommerce.jpg',
       features: [
         'Multi-vendor marketplace support',
         'AI-powered product recommendations',
@@ -175,7 +175,7 @@ const ProductsPage = () => {
     {
       title: 'Movie Ticket Booking System',
       description: 'State-of-the-art ticketing solution for cinema chains and entertainment venues with real-time capabilities.',
-      image: 'https://images.pexels.com/photos/7991579/pexels-photo-7991579.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/products/flickBooker.png',
       features: [
         'Real-time seat selection',
         'Multiple cinema management',
@@ -189,7 +189,7 @@ const ProductsPage = () => {
     {
       title: 'Enterprise Resource Planning',
       description: 'Integrated ERP solution designed for modern enterprises to streamline operations and boost productivity.',
-      image: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/products/ERP.jpg',
       features: [
         'Financial management suite',
         'HR & payroll integration',
@@ -203,7 +203,7 @@ const ProductsPage = () => {
     {
       title: 'Smart Business Card',
       description: 'Revolutionizing networking with a smart, tap-to-share digital business card for modern professionals.',
-      image: 'https://images.pexels.com/photos/6373478/pexels-photo-6373478.jpeg?auto=compress&cs=tinysrgb&w=600',
+      image: '/products/SBCard.png',
       features: [
         'Instant contact sharing',
         'Portfolio & social links in one tap',

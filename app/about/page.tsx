@@ -220,34 +220,52 @@ const AboutPage = () => {
   };
 
   const TeamMembers = [
-  {
-    name: "Sarah Chen",
-    position: "Lead Developer",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
-    linkedin: "#",
-    email: "sarah@example.com",
-    bgColor: "bg-gradient-to-br from-purple-500 to-pink-500",
-    color: "text-white"
-  },
-  {
-    name: "Marcus Rodriguez",
-    position: "UI/UX Designer",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    linkedin: "#",
-    email: "marcus@example.com",
-    bgColor: "bg-gradient-to-br from-blue-500 to-cyan-500",
-    color: "text-white"
-  },
-  {
-    name: "Emily Watson",
-    position: "Product Manager",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-    linkedin: "#",
-    email: "emily@example.com",
-    bgColor: "bg-gradient-to-br from-emerald-500 to-teal-500",
-    color: "text-white"
-  }
-];
+    {
+      name: 'Fasil M',
+      position: 'MD - Co-Founder',
+      image: '/team/fasil.jpeg',
+      linkedin: 'https://www.linkedin.com/in/fasil-m/',
+      email: 'fasilm5171@gmail.com',
+      bgColor: '',
+      color: 'text-white',
+    },
+    {
+      name: 'Henna Maria',
+      position: 'CTO - Co-Founder',
+      image: '/team/henna.jpg',
+      linkedin: '#',
+      email: '#',
+      bgColor: '',
+      color: 'text-white',
+    },
+    {
+      name: 'Fayiza MP',
+      position: 'Software Developer',
+      image: '/team/fayiza.jpg',
+      linkedin: 'https://www.linkedin.com/in/fayiza-mp/',
+      email: 'fayizamp3@gmail.com',
+      bgColor: '',
+      color: 'text-white',
+    },
+    {
+      name: 'Akash A',
+      position: 'Digital Marketing Specialist',
+      image: '/team/akash.jpeg',
+      linkedin: '#',
+      email: 'akashashokan812@gmail.com',
+      bgColor: '',
+      color: 'text-white',
+    },
+    {
+      name: 'Pranav Kumar',
+      position: 'UI/UX Designer',
+      image: '/team/pranav.jpg',
+      linkedin: '#',
+      email: '#',
+      bgColor: '',
+      color: 'text-white',
+    },
+  ];
 
 
   const scrollToSection = (sectionId: string) => {
