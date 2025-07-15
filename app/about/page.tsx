@@ -258,7 +258,7 @@ const AboutPage = () => {
   return (
     <main ref={pageRef} className="relative bg-white overflow-hidden ">
       {/* Hero Section - Light Theme */}
-      <section className=" relative min-h-screen flex items-center p-[5%]  justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 pt-16 sm:pt-20 md:pt-24 lg:pt-0">
+      <section className=" relative min-h-screen flex items-center pt-10  justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 ">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-30 ">
           <div className="absolute inset-0" style={{
@@ -267,13 +267,12 @@ const AboutPage = () => {
           }}></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto pt-10 px-4 sm:px-6 lg:px-8 py-8 sm:py-12 md:py-16">
+        <div className="relative z-10 max-w-7xl mx-auto p-[5%]">
           <div className="fade-in-up">
             <div className="grid grid-cols-1 pt-7 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
               {/* Left Content */}
-              <div className="text-left">
-                {/* Badge */}
-                <div className="inline-flex items-center space-x-2 bg-white/90 backdrop-blur-sm border border-blue-200 rounded-full px-6 py-3 mb-8 shadow-lg hover:shadow-xl transition-all duration-300">
+           <div className="text-left mb-8 sm:mb-12 lg:mb-16">
+            <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-blue-100 rounded-full px-4 sm:px-6 py-2 sm:py-3 mb-6 sm:mb-8 shadow-lg ">
                   <Building className="w-5 h-5 text-blue-600" />
                   <span className="text-sm font-semibold text-slate-800">About Zephyrix Tech</span>
                 </div>

@@ -450,7 +450,7 @@ const ServicesPage: React.FC = () => {
   return (
     <main ref={pageRef} className="relative">
       {/* Enhanced Hero Section */}
-      <section className="relative min-h-screen p-[5%] flex items-center justify-center pt-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
+      <section className="relative min-h-screen p-[5%] flex items-center justify-center pt-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
         {/* Animated background elements */}
         {/* <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200 rounded-full opacity-20 animate-pulse"></div>
@@ -465,14 +465,14 @@ const ServicesPage: React.FC = () => {
               <span className="text-xs sm:text-sm font-semibold text-blue-600">Premium Digital Services</span>
             </div>
             
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight px-2 sm:px-0">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-gray-900 leading-tight px-2 sm:px-0">
               Transform Your Business
               <span className="block text-blue-600">
                 Digitally
               </span>
             </h1>
             
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-600 mb-8 sm:mb-10 lg:mb-12 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
+            <p className="text-base sm:text-lg md:text-xl text-gray-600 mb-8 sm:mb-10 lg:mb-12 max-w-4xl mx-auto leading-relaxed px-4 sm:px-0">
               Innovative digital solutions that drive growth, enhance efficiency, and create lasting value 
               in today's competitive landscape.
             </p>

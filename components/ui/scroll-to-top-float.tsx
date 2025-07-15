@@ -25,7 +25,7 @@ const ScrollToTopFloat: React.FC = () => {
     <button
       onClick={scrollToTop}
       aria-label="Scroll to top"
-      className="fixed bottom-6 right-6 z-[999] bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      className="fixed bottom-6 right-6 z-[999] bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-lg w-11 h-11 flex items-center justify-center transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-400"
       style={{ boxShadow: '0 4px 24px rgba(37,99,235,0.18)' }}
     >
       <ArrowUp className="w-6 h-6" />
