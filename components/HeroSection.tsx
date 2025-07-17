@@ -49,32 +49,32 @@ const HeroSection = () => {
           {/* Left Column - Content */}
           <div className="space-y-8">
             <div className="space-y-4">
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-slate-800">
                 Build the
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600"> Future</span>
               </h1>
-              <p className="text-xl lg:text-2xl text-gray-600 leading-relaxed">
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
                 Empowering developers and businesses with cutting-edge technology solutions that scale.
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full hover:from-blue-700 hover:to-purple-700 text-white font-semibold text-base md:text-lg transition-all duration-300 shadow-lg">
                 Get Started
               </button>
-              <button className="px-8 py-4 border-2 border-gray-600 hover:border-gray-800 rounded-xl hover:bg-gray-800 hover:text-white rounded-lg font-semibold text-lg transition-all duration-300">
+              <button className="px-8 py-4 border-2 border-gray-600 hover:border-gray-800 rounded-full hover:bg-gray-800 hover:text-white font-semibold text-base md:text-lg transition-all duration-300">
                 Learn More
               </button>
             </div>
             
-            <div className="flex items-center space-x-8 text-gray-500">
+            <div className="flex items-center space-x-8 text-slate-500">
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Live System</span>
+                <span className="text-base">Live System</span>
               </div>
               <div className="flex items-center space-x-2">
                 <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-                <span>99.9% Uptime</span>
+                <span className="text-base">99.9% Uptime</span>
               </div>
             </div>
           </div>
@@ -119,19 +119,19 @@ const HeroSection = () => {
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           <div className="space-y-2">
             <div className="text-3xl font-bold text-blue-600">500+</div>
-            <div className="text-gray-500">Projects Deployed</div>
+            <div className="text-slate-500 text-base leading-normal">Projects Deployed</div>
           </div>
           <div className="space-y-2">
-            <div className="text-3xl  font-bold text-purple-600">99.9%</div>
-            <div className="text-gray-500">Uptime</div>
+            <div className="text-3xl font-bold text-purple-600">99.9%</div>
+            <div className="text-slate-500 text-base leading-normal">Uptime</div>
           </div>
           <div className="space-y-2">
             <div className="text-3xl font-bold text-green-600">24/7</div>
-            <div className="text-gray-500">Support</div>
+            <div className="text-slate-500 text-base leading-normal">Support</div>
           </div>
           <div className="space-y-2">
             <div className="text-3xl font-bold text-orange-600">10K+</div>
-            <div className="text-gray-500">Happy Clients</div>
+            <div className="text-slate-500 text-base leading-normal">Happy Clients</div>
           </div>
         </div>
       </div>

@@ -119,10 +119,10 @@ const TeamSection = () => {
             <Sparkles className="w-4 md:w-5 h-4 md:h-5 text-blue-500" />
             <span className="text-sm md:text-base font-semibold text-slate-800">Our Experts</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight text-slate-800">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight text-slate-800">
             Meet Our <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Team</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-tight md:leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             A passionate team dedicated to crafting innovative digital experiences that drive success.
           </p>
         </div>
@@ -153,7 +153,7 @@ const TeamSection = () => {
                           {/* Name and position - starts below, moves to 0 on hover */}
                           <div className="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
                             <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                            <p className="text-sm text-white/90 font-medium">{member.position}</p>
+                            <p className="text-base text-white/90 font-medium leading-relaxed">{member.position}</p>
                           </div>
                           
                           {/* Social links - hidden below, slides up on hover */}

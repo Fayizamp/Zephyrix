@@ -101,10 +101,10 @@ const AboutSection = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-bg">
         <div className="text-center mb-12 md:mb-20 scale-in">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#0f0f23] to-slate-700 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-[#0f0f23] to-slate-700 bg-clip-text text-transparent">
             About <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Zephyrix Tech</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-tight md:leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             We're passionate about building innovative products that make a difference in the world through technology.
           </p>
         </div>
@@ -119,10 +119,10 @@ const AboutSection = () => {
               <h3 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Our Mission
               </h3>
-              <p className="text-sm md:text-lg text-slate-600 mb-4 md:mb-6 leading-tight md:leading-relaxed">
+              <p className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed">
                 Our mission is to harness the power of technology to drive positive change in the world. We combine innovative thinking with technical expertise to create solutions that make a real impact.
               </p>
-              <p className="text-sm md:text-lg text-slate-600 leading-tight md:leading-relaxed">
+              <p className="text-base md:text-lg text-slate-600 leading-relaxed">
                 With over a decade of experience, we've helped hundreds of businesses across multiple industries modernize their operations and achieve their digital transformation goals.
               </p>
             </div>
@@ -157,7 +157,7 @@ const AboutSection = () => {
                   <value.icon className="w-6 md:w-8 h-6 md:h-8 text-white" />
                 </div>
                 <h4 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-[#0f0f23]">{value.title}</h4>
-                <p className="text-sm md:text-base text-slate-600 leading-tight md:leading-relaxed">{value.description}</p>
+                <p className="text-base text-slate-600 leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>

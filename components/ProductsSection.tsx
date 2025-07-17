@@ -113,10 +113,10 @@ const ProductsSection = () => {
             <Sparkles className="w-5 h-5 text-blue-500 animate-pulse" />
             <span className="text-sm font-semibold text-gray-800">Why Choose Us</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-800">
             Next-Level <span className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Solutions</span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Discover innovative products designed to propel your business to new heights with seamless integration and scalability.
           </p>
           <div className="mt-8 flex justify-center">
@@ -162,10 +162,10 @@ const ProductsSection = () => {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-2xl font-bold mb-4 text-gray-900 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-4 text-slate-800 group-hover:bg-gradient-to-r group-hover:from-blue-500 group-hover:to-purple-500 group-hover:bg-clip-text group-hover:text-transparent transition-all duration-300">
                   {product.title}
                 </h3>
-                <p className="text-gray-700 mb-6 leading-relaxed text-base">
+                <p className="text-base md:text-lg text-slate-600 mb-6 leading-relaxed">
                   {product.description}
                 </p>
 
@@ -228,7 +228,7 @@ const ProductsSection = () => {
               <h3 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                 {taglines[currentTagline]}
               </h3>
-              <p className="text-xl text-gray-700 mb-8 leading-relaxed">
+              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                 We create tailored software solutions that perfectly match your unique business requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

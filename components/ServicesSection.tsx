@@ -154,12 +154,12 @@ const ServicesSection = () => {
             <Sparkles className="w-4 md:w-5 h-4 md:h-5 text-blue-500" />
             <span className="text-sm md:text-base font-semibold text-slate-800">Our Expertise</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight text-slate-800">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 md:mb-6 leading-tight text-slate-800">
             Services We <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Offer</span>
             <br />
             with <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">Excellence</span>
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-tight md:leading-relaxed">
+          <p className="text-lg md:text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             Comprehensive digital solutions tailored to transform your business and drive unprecedented growth.
           </p>
         </div>
@@ -171,8 +171,8 @@ const ServicesSection = () => {
                 <div className={`w-14 md:w-16 h-14 md:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 md:mb-6 icon-hover shadow-lg`}>
                   <service.icon className="w-6 md:w-8 h-6 md:h-8 text-white" />
                 </div>
-                <h3 className="text-lg md:text-xl font-semibold mb-3 md:mb-4 text-slate-800">{service.title}</h3>
-                <p className="text-sm md:text-base text-slate-600 mb-4 md:mb-6 leading-tight md:leading-relaxed">{service.description}</p>
+                <h3 className="text-xl md:text-2xl font-semibold mb-3 md:mb-4 text-slate-800">{service.title}</h3>
+                <p className="text-base md:text-lg text-slate-600 mb-4 md:mb-6 leading-relaxed">{service.description}</p>
                 <div className="space-y-3 mb-4 md:mb-6">
                   {service.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center text-sm md:text-base text-slate-600">
@@ -203,7 +203,7 @@ const ServicesSection = () => {
                 Ready to Transform Your{' '}
                 <span className="bg-gradient-to-r from-blue-500 to-indigo-500 bg-clip-text text-transparent">Business</span>?
               </h3>
-              <p className="text-sm md:text-lg text-slate-600 mb-6 md:mb-10 leading-tight md:leading-relaxed max-w-2xl mx-auto">
+              <p className="text-lg text-slate-600 mb-6 md:mb-10 leading-relaxed max-w-2xl mx-auto">
                 Let's discuss how our cutting-edge services can help you achieve your digital transformation goals and accelerate growth.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center">
