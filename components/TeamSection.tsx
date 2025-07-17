@@ -127,7 +127,7 @@ const TeamSection = () => {
           </p>
         </div>
 
-         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+         <div className="grid grid-cols-1 rounded-2xl sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
                   {teamMembers.map((member, index) => (
                     <div
                       key={index}
@@ -138,7 +138,7 @@ const TeamSection = () => {
                         <img
                           src={member.image}
                           alt={member.name}
-                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          className="w-full h-full object-cover rounded-2xl group-hover:scale-110 transition-transform duration-700"
                         />
                         
                         {/* Gradient overlay */}
@@ -149,13 +149,15 @@ const TeamSection = () => {
                           <Sparkles className={`w-6 h-6 `} />
                         </div>
                         
-                        {/* Content overlay */}
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                          <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                          <p className="text-sm text-white/90 mb-4 font-medium">{member.position}</p>
+                         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                          {/* Name and position - starts below, moves to 0 on hover */}
+                          <div className="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                            <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                            <p className="text-sm text-white/90 font-medium">{member.position}</p>
+                          </div>
                           
-                          {/* Social links */}
-                          <div className="flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
+                          {/* Social links - hidden below, slides up on hover */}
+                          <div className="flex space-x-3 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-150 mt-4">
                             <a
                               href={member.linkedin}
                               className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"

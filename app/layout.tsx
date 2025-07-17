@@ -28,7 +28,7 @@ export default function RootLayout({
         </main>
         
         <Footer />
-        <WhatsappFloat />
+        {/* <WhatsappFloat /> */}
         <ScrollToTopFloat />
       </body>
     </html>

@@ -9,19 +9,38 @@ import Image from 'next/image';
 const Header = () => {
   const [isOverlayOpen, setIsOverlayOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
   const isHomePage = pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
+      const currentScrollY = window.scrollY;
+      
+      // Update scrolled state
+      setIsScrolled(currentScrollY > 100);
+      
+      // Show/hide logic
+      if (currentScrollY === 0) {
+        // Always show at top
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past threshold - hide
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        // Scrolling up - show
+        setIsVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
     // Immediately check scroll position on mount
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const toggleOverlay = () => {
     setIsOverlayOpen(!isOverlayOpen);
@@ -62,8 +81,10 @@ const Header = () => {
 
   return (
     <>
-      {/* Hide header when overlay is open */}
-      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${getHeaderStyle()}${isOverlayOpen ? ' hidden' : ''}`}>
+      {/* Header with show/hide animation */}
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${getHeaderStyle()} ${
+        isVisible ? 'transform translate-y-0' : 'transform -translate-y-full'
+      }${isOverlayOpen ? ' hidden' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo */}

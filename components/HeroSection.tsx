@@ -59,10 +59,10 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg">
+              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 text-white rounded-lg font-semibold text-lg transition-all duration-300 shadow-lg">
                 Get Started
               </button>
-              <button className="px-8 py-4 border-2 border-gray-600 hover:border-gray-800 hover:bg-gray-800 hover:text-white rounded-lg font-semibold text-lg transition-all duration-300">
+              <button className="px-8 py-4 border-2 border-gray-600 hover:border-gray-800 rounded-xl hover:bg-gray-800 hover:text-white rounded-lg font-semibold text-lg transition-all duration-300">
                 Learn More
               </button>
             </div>
@@ -122,7 +122,7 @@ const HeroSection = () => {
             <div className="text-gray-500">Projects Deployed</div>
           </div>
           <div className="space-y-2">
-            <div className="text-3xl font-bold text-purple-600">99.9%</div>
+            <div className="text-3xl  font-bold text-purple-600">99.9%</div>
             <div className="text-gray-500">Uptime</div>
           </div>
           <div className="space-y-2">
