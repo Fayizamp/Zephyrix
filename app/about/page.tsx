@@ -108,68 +108,7 @@ const AboutPage = () => {
     },
 ];
 
-  const teamMembers = [
-    {
-      name: 'Sarah Johnson',
-      position: 'CEO & Founder',
-      description: 'Visionary leader with 15+ years in tech innovation',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b739?w=400&h=400&fit=crop&crop=face',
-      color: 'text-blue-600',
-      bgColor: 'bg-blue-50',
-      linkedin: '#',
-      email: 'sarah@zephyrixtech.com'
-    },
-    {
-      name: 'Michael Chen',
-      position: 'CTO',
-      description: 'Technical architect specializing in scalable solutions',
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face',
-      color: 'text-purple-600',
-      bgColor: 'bg-purple-50',
-      linkedin: '#',
-      email: 'michael@zephyrixtech.com'
-    },
-    {
-      name: 'Emily Rodriguez',
-      position: 'Head of Design',
-      description: 'Creative director crafting intuitive user experiences',
-      image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face',
-      color: 'text-pink-600',
-      bgColor: 'bg-pink-50',
-      linkedin: '#',
-      email: 'emily@zephyrixtech.com'
-    },
-    {
-      name: 'David Kim',
-      position: 'Lead Developer',
-      description: 'Full-stack expert in modern web technologies',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face',
-      color: 'text-green-600',
-      bgColor: 'bg-green-50',
-      linkedin: '#',
-      email: 'david@zephyrixtech.com'
-    },
-    {
-      name: 'Lisa Wang',
-      position: 'Product Manager',
-      description: 'Strategic thinker driving product innovation',
-      image: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=400&fit=crop&crop=face',
-      color: 'text-teal-600',
-      bgColor: 'bg-teal-50',
-      linkedin: '#',
-      email: 'lisa@zephyrixtech.com'
-    },
-    {
-      name: 'Alex Thompson',
-      position: 'Marketing Director',
-      description: 'Brand strategist with digital marketing expertise',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop&crop=face',
-      color: 'text-orange-600',
-      bgColor: 'bg-orange-50',
-      linkedin: '#',
-      email: 'alex@zephyrixtech.com'
-    }
-  ];
+ 
 
   const testimonials = [
     {
@@ -219,7 +158,7 @@ const AboutPage = () => {
     }
   };
 
-  const TeamMembers = [
+  const teamMembers = [
     {
       name: 'Fasil M',
       position: 'MD - Co-Founder',
@@ -274,7 +213,7 @@ const AboutPage = () => {
   };
 
   return (
-    <main ref={pageRef} className="relative bg-white overflow-hidden ">
+    <main ref={pageRef} className="relative font-poppins bg-white overflow-hidden ">
       {/* Hero Section - Light Theme */}
       <section className=" relative min-h-screen flex items-center pt-10  justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 ">
         {/* Subtle Background Pattern */}
@@ -576,53 +515,55 @@ const AboutPage = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
-          {TeamMembers.map((member, index) => (
-            <div
-              key={index}
-              className="scale-in group"
-              style={{ animationDelay: `${index * 150}ms` }}
-            >
-              <div className="relative overflow-hidden rounded-2xl h-64 sm:h-80 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                />
-                
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
-                
-                {/* Sparkles icon */}
-                <div className={`absolute top-4 right-4 w-12 h-12 ${member.bgColor} rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
-                  <Sparkles className={`w-6 h-6 ${member.color}`} />
-                </div>
-                
-                {/* Content overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-xl font-bold mb-2">{member.name}</h3>
-                  <p className="text-sm text-white/90 mb-4 font-medium">{member.position}</p>
-                  
-                  {/* Social links */}
-                  <div className="flex space-x-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
-                    <a
-                      href={member.linkedin}
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"
-                    >
-                      <Linkedin className="w-5 h-5 text-white" />
-                    </a>
-                    <a
-                      href={`mailto:${member.email}`}
-                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"
-                    >
-                      <Mail className="w-5 h-5 text-white" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+          <div className="grid grid-cols-1 rounded-2xl sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-8 sm:mb-12">
+                          {teamMembers.map((member, index) => (
+                            <div
+                              key={index}
+                              className="scale-in group"
+                              style={{ animationDelay: `${index * 150}ms` }}
+                            >
+                              <div className="relative overflow-hidden rounded-2xl h-64 sm:h-80 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3">
+                                <img
+                                  src={member.image}
+                                  alt={member.name}
+                                  className="w-full h-full object-cover rounded-2xl group-hover:scale-110 transition-transform duration-700"
+                                />
+                                
+                                {/* Gradient overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                                
+                                {/* Sparkles icon */}
+                                <div className={`absolute top-4 right-4 w-12 h-12  rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
+                                  <Sparkles className={`w-6 h-6 `} />
+                                </div>
+                                
+                                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                                  {/* Name and position - starts below, moves to 0 on hover */}
+                                  <div className="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
+                                    <h3 className="text-xl font-bold mb-2">{member.name}</h3>
+                                    <p className="text-base text-white/90 font-medium leading-relaxed">{member.position}</p>
+                                  </div>
+                                  
+                                  {/* Social links - hidden below, slides up on hover */}
+                                  <div className="flex space-x-3 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-150 mt-4">
+                                    <a
+                                      href={member.linkedin}
+                                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"
+                                    >
+                                      <Linkedin className="w-5 h-5 text-white" />
+                                    </a>
+                                    <a
+                                      href={`mailto:${member.email}`}
+                                      className="w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/30 hover:scale-110 transition-all duration-300"
+                                    >
+                                      <Mail className="w-5 h-5 text-white" />
+                                    </a>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
       </div>
 </section>
       {/* Testimonials Section */}
