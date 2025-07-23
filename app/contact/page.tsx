@@ -279,8 +279,8 @@ const ContactPage = () => {
     {
       icon: Phone,
       title: 'Call Us',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: '+91 75101 65316',
+      link: 'tel:+91 75101 65316',
       description: 'Mon-Fri from 9am to 6pm',
       gradient: 'from-green-500 to-emerald-500',
     },
@@ -339,7 +339,7 @@ const ContactPage = () => {
               </div>
               <div className="flex items-center space-x-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-300 group">
                 <Phone className="w-5 h-5 text-green-600 group-hover:animate-bounce-subtle" />
-                <span className="text-gray-700 font-medium">+1 (555) 123-4567</span>
+                <span className="text-gray-700 font-medium">+91 75101 65316</span>
               </div>
             </div>
 
@@ -520,7 +520,7 @@ const ContactPage = () => {
                           value={formData.phone}
                           onChange={handleChange}
                           className="w-full px-4 py-4 bg-white border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-gray-900 placeholder-gray-400 input-focus"
-                          placeholder="+1 (555) 123-4567"
+                          placeholder="+91 75101 65316"
                         />
                       </div>
                       <div>

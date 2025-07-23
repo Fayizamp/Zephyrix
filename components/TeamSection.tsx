@@ -7,7 +7,7 @@ const TeamSection = () => {
   const teamMembers = [
     {
       name: 'Fasil M',
-      position: 'MD - Co-Founder',
+      position: 'Senior Software Developer',
       image: '/team/fasil.jpeg',
       linkedin: 'https://www.linkedin.com/in/fasil-m/',
       email: 'fasilm5171@gmail.com',
@@ -16,7 +16,7 @@ const TeamSection = () => {
     },
     {
       name: 'Henna Maria',
-      position: 'CTO - Co-Founder',
+      position: 'Senior Software Developer',
       image: '/team/henna.jpg',
       linkedin: '#',
       email: '#',
