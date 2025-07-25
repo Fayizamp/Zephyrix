@@ -118,7 +118,7 @@ const HeroSection = () => {
         {/* Bottom Stats Section */}
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           <div className="space-y-2">
-            <div className="text-3xl font-bold text-blue-600">500+</div>
+            <div className="text-3xl font-bold text-blue-600">50</div>
             <div className="text-slate-500 text-base leading-normal">Projects Deployed</div>
           </div>
           <div className="space-y-2">
@@ -130,7 +130,7 @@ const HeroSection = () => {
             <div className="text-slate-500 text-base leading-normal">Support</div>
           </div>
           <div className="space-y-2">
-            <div className="text-3xl font-bold text-orange-600">10K+</div>
+            <div className="text-3xl font-bold text-orange-600">5+</div>
             <div className="text-slate-500 text-base leading-normal">Happy Clients</div>
           </div>
         </div>

@@ -41,24 +41,16 @@ const AboutPage = () => {
   const stats = [
     { 
       icon: Users, 
-      label: 'Happy Clients', 
-      value: '2,500+', 
+      label: 'Clients', 
+      value: '5+', 
       color: 'text-white',
       bgColor: 'from-blue-500 to-blue-700',
       description: 'Satisfied customers globally'
     },
     { 
-      icon: Award, 
-      label: 'Awards Won', 
-      value: '45+', 
-      color: 'text-white',
-      bgColor: 'from-purple-500 to-purple-700',
-      description: 'Industry recognitions'
-    },
-    { 
       icon: Target, 
       label: 'Projects Done', 
-      value: '1,200+', 
+      value: '50', 
       color: 'text-white',
       bgColor: 'from-green-500 to-green-700',
       description: 'Successfully completed'
@@ -66,7 +58,7 @@ const AboutPage = () => {
     { 
       icon: Clock, 
       label: 'Years Experience', 
-      value: '15+', 
+      value: '3+', 
       color: 'text-white',
       bgColor: 'from-orange-500 to-orange-700',
       description: 'Industry expertise'
@@ -339,10 +331,10 @@ const AboutPage = () => {
                         <div className="text-xl sm:text-2xl font-bold text-blue-600">98%</div>
                         <div className="text-xs text-slate-600">Success Rate</div>
                       </div>
-                      <div className="text-center">
+                      {/* <div className="text-center">
                         <div className="text-xl sm:text-2xl font-bold text-purple-600">45+</div>
                         <div className="text-xs text-slate-600">Awards Won</div>
-                      </div>
+                      </div> */}
                       <div className="text-center">
                         <div className="text-xl sm:text-2xl font-bold text-green-600">24/7</div>
                         <div className="text-xs text-slate-600">Support</div>
@@ -447,7 +439,7 @@ const AboutPage = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <div
                 key={index}
