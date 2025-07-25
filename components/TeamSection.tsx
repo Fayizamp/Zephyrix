@@ -145,9 +145,9 @@ const TeamSection = () => {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
                         
                         {/* Sparkles icon */}
-                        <div className={`absolute top-4 right-4 w-12 h-12  rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
+                        {/* <div className={`absolute top-4 right-4 w-12 h-12  rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
                           <Sparkles className={`w-6 h-6 `} />
-                        </div>
+                        </div> */}
                         
                          <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                           {/* Name and position - starts below, moves to 0 on hover */}

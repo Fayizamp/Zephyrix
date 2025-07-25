@@ -448,7 +448,7 @@ const ServicesPage: React.FC = () => {
   };
 
   return (
-    <main ref={pageRef} className="relative font-poppins">
+    <main ref={pageRef} className="relative ">
       {/* Enhanced Hero Section */}
       <section className="relative min-h-screen p-[5%] flex items-center justify-center pt-24 bg-gradient-to-br from-gray-50 via-white to-blue-50 overflow-hidden">
         {/* Animated background elements */}

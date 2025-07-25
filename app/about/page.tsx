@@ -213,7 +213,7 @@ const AboutPage = () => {
   };
 
   return (
-    <main ref={pageRef} className="relative font-poppins bg-white overflow-hidden ">
+    <main ref={pageRef} className="relative bg-white overflow-hidden ">
       {/* Hero Section - Light Theme */}
       <section className=" relative min-h-screen flex items-center pt-10  justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 ">
         {/* Subtle Background Pattern */}
@@ -532,11 +532,11 @@ const AboutPage = () => {
                                 {/* Gradient overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
                                 
-                                {/* Sparkles icon */}
+                                {/* Sparkles icon
                                 <div className={`absolute top-4 right-4 w-12 h-12  rounded-full flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform duration-300`}>
                                   <Sparkles className={`w-6 h-6 `} />
                                 </div>
-                                
+                                 */}
                                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
                                   {/* Name and position - starts below, moves to 0 on hover */}
                                   <div className="transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
